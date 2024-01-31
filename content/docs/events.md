@@ -18,7 +18,7 @@ $ php laracord make:event Example
 
 When creating an event, you will be prompted to choose a listener from a searchable select box.
 
-![Event Screenshot](https://i.imgur.com/S1sdFim.png)
+![Event Screenshot](/images/make-event.png)
 
 Once you select a listener, an Event class will automatically be generated including the necessary namespaces/typing specific to the handler.
 
