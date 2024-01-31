@@ -39,8 +39,12 @@ class Show extends Component
         $this->page = Docs::findOrFail($page);
 
         seo()
-            ->title("{$this->page->title} | Laracord")
+            ->title("{$this->page->title} Docs | Laracord")
             ->canonical(route('docs.show', $this->page->slug));
+
+        if ($this->page->description) {
+            seo()->description($this->page->description);
+        }
     }
 
     /**

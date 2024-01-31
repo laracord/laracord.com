@@ -1,6 +1,7 @@
 ---
 slug: configuration
 title: 'Configuration'
+description: 'Configuring Laracord to get a Discord bot up and running can be done in just a few minutes.'
 priority: 2
 group: 'Getting Started'
 ---

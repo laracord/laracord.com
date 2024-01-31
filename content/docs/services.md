@@ -1,6 +1,7 @@
 ---
 slug: services
 title: 'Services'
+description: 'Create services alongside your Laracord Discord bot to run asynchronous tasks.'
 priority: 4
 group: Usage
 ---

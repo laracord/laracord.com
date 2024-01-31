@@ -26,6 +26,7 @@ class Docs extends Model
     {
         $table->string('slug');
         $table->string('title');
+        $table->string('description')->nullable();
         $table->string('group')->nullable();
         $table->integer('priority')->default(1);
         $table->longText('content');

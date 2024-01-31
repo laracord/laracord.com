@@ -1,6 +1,7 @@
 ---
 slug: slash-commands
 title: 'Slash Commands'
+description: 'Create powerful Discord slash commands and let Laracord handle the hard work for you.'
 priority: 2
 group: Usage
 ---

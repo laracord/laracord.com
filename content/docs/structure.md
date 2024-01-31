@@ -1,6 +1,7 @@
 ---
 slug: structure
 title: 'Directory Structure'
+description: 'If you are comfortable with Laravel, Laracord provides a very familiar starting point.'
 priority: 3
 group: 'Getting Started'
 ---

@@ -1,6 +1,7 @@
 ---
 slug: hooks
 title: 'Hooks'
+description: 'Laracord has support for 45+ Discord hooks out of the box.'
 priority: 1
 group: Advanced
 ---

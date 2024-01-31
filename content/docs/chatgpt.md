@@ -1,11 +1,12 @@
 ---
 slug: chatgpt
 title: 'ChatGPT Example'
+description: 'Easily create a Discord bot that interacts with ChatGPT using Laracord.'
 priority: 1
 group: Examples
 ---
 
-Create a command to interact with OpenAI's API is quite easy thanks to the official [Laravel OpenAI package](https://github.com/openai-php/laravel).
+Creating a Discord command to interact with OpenAI's API is quite easy thanks to the official [Laravel OpenAI package](https://github.com/openai-php/laravel).
 
 In this example, we will create a simple `!chat` command to ask ChatGPT questions through the Discord bot.
 

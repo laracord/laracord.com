@@ -1,6 +1,7 @@
 ---
 slug: state
 title: 'State'
+description: 'Easily access the full state of your Laracord Discord bot in any class.'
 priority: 5
 group: Usage
 ---
