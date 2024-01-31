@@ -6,9 +6,9 @@ priority: 4
 group: 'Getting Started'
 ---
 
-Building Laracord for production has the same build process as [Laravel Zero](https://laravel-zero.com/) utilizing [box](https://github.com/box-project/box) to bundle the application into a single `PHAR` file.
+Building Laracord for production has the same build process as [Laravel Zero](https://laravel-zero.com/) utilizing [Box](https://github.com/box-project/box) to bundle the application into a single `PHAR` file.
 
-Additional configuration for box can be found in `box.json`.
+Additional configuration for Box can be found in `box.json`.
 
 ## Building for Production
 
