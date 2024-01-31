@@ -93,13 +93,9 @@ protected $options = [
         'required' => true,
     ],
 ];
-```
-
-```php
-use Discord\Parts\Interactions\Command\Option;
 
 /**
- * Set the command options.
+ * The slash command options.
  *
  * @return array
  */
