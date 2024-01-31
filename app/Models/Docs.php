@@ -33,6 +33,16 @@ class Docs extends Model
     }
 
     /**
+     * Retrieve the documentation URL.
+     *
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return route('docs.show', $this->slug);
+    }
+
+    /**
      * Get the key name for the model.
      *
      * @return string
