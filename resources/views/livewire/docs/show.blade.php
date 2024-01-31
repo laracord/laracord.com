@@ -62,7 +62,7 @@
     </div>
   </x-container>
 
-  @pushOnce('head')
+  @pushOnce('scripts')
     @markdomStyles
   @endPushOnce
 </div>
