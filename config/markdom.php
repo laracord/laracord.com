@@ -98,7 +98,7 @@ return [
         |--------------------------------------------------------------------------
         */
         'heading_permalink' => [
-            'html_class' => '!text-white/10 hover:!text-primary-500 !transition !no-underline !mr-2 !-ml-6',
+            'html_class' => '!text-white/10 hover:!text-primary-500 !transition !no-underline !mr-2 md:!-ml-6',
             'insert' => 'before',
             'title' => 'Permalink',
             'symbol' => '#',
