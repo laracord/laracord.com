@@ -10,6 +10,8 @@ Services are asynchronous tasks that run parallel to the Discord bot on an inter
 
 Services created in your application are automatically booted alongside your bot with the Discord instance being easily accessible through `discord()`.
 
+## Creating a Service
+
 To create a service, run the `make:service` command:
 
 ```sh
