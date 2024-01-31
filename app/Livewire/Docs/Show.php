@@ -20,7 +20,7 @@ class Show extends Component
      *
      * @var array
      */
-    public $groups = [
+    protected $groups = [
         'Getting Started',
         'Usage',
         'Advanced',
