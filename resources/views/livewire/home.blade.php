@@ -10,7 +10,7 @@
       </code>
 
       <div class="flex items-center justify-center">
-        <x-button wire:navigate url="{{ route('docs') }}">
+        <x-button wire:navigate url="{{ route('docs.show', ['installation']) }}">
           Documentation
         </x-button>
 
