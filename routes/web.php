@@ -22,3 +22,5 @@ Route::get('/docs', fn () => redirect()->route('docs.show', 'installation'))
 
 Route::get('/docs/{page:slug}', DocsShow::class)
     ->name('docs.show');
+
+Route::get('/sitemap.xml', 'App\Http\Controllers\SitemapController@index');
