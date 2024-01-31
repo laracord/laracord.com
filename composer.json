@@ -18,7 +18,8 @@
     "livewire/livewire": "^3.3",
     "romanzipp/laravel-seo": "^2.6",
     "ryangjchandler/orbit": "^1.2",
-    "sinnbeck/markdom": "^2.0"
+    "sinnbeck/markdom": "^2.0",
+    "spatie/laravel-responsecache": "^7.4"
   },
   "require-dev": {
     "barryvdh/laravel-debugbar": "^3.9",
