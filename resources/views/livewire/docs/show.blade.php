@@ -23,7 +23,7 @@
                         <a
                           @class([
                             'text-primary-500' => request()->url() === route('docs.show', [$item['slug']]),
-                            'text-gray-400 hover:text-primary-500' => request()->url() !== route('docs.show', [$item['slug']]),
+                            'text-white/60 hover:text-primary-500' => request()->url() !== route('docs.show', [$item['slug']]),
                             'text-sm font-medium transition inline-flex items-center group'
                           ])
                           wire:navigate
