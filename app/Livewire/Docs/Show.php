@@ -40,7 +40,7 @@ class Show extends Component
 
         seo()
             ->title("{$this->page->title} | Laracord")
-            ->description(Str::limit($this->page->content, 100));
+            ->canonical(route('docs.show', $this->page->slug));
     }
 
     /**
