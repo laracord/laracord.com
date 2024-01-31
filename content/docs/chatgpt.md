@@ -48,8 +48,6 @@ Here's how it is done:
 
 namespace App\Commands;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Laracord\Commands\Command;
 use OpenAI\Laravel\Facades\OpenAI;
 
