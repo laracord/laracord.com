@@ -15,7 +15,7 @@ class Home extends Component
     public function render()
     {
         seo()
-            ->title($title = config('app.name') . ' | Discord Bot Micro-framework')
+            ->title($title = config('app.name').' | Discord Bot Micro-framework')
             ->description($description = 'Create powerful Discord bots using Laravel and DiscordPHP.')
             ->canonical($url = route('home'))
             ->addSchema(
