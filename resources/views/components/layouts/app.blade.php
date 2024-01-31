@@ -17,5 +17,9 @@
 
     @livewireScriptConfig
     @stack('scripts')
+
+    @production
+      <script src="https://cdn.usefathom.com/script.js" data-site="TCWDOMUK" data-spa="auto" defer></script>
+    @endproduction
   </body>
 </html>
