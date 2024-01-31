@@ -48,16 +48,16 @@ class AddSeoDefaults
 
             LinkMeta::make()
                 ->rel('mask-icon')
-                ->attr('color', '#3b82f6')
+                ->attr('color', '#f97316')
                 ->href('/safari-pinned-tab.svg'),
 
             Meta::make()
                 ->name('theme-color')
-                ->content('#3b82f6'),
+                ->content('#f97316'),
 
             Meta::make()
                 ->name('msapplication-TileColor')
-                ->content('#3b82f6'),
+                ->content('#f97316'),
 
             OpenGraph::make()
                 ->property('title')
@@ -81,7 +81,7 @@ class AddSeoDefaults
 
             Twitter::make()
                 ->name('image')
-                ->content(asset('/apple-touch-icon.png')),
+                ->content(asset('/social.png')),
         ]);
 
         return $next($request);
