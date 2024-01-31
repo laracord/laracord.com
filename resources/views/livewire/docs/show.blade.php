@@ -57,6 +57,13 @@
           <div class="mt-8 prose text-white text-opacity-80 prose-neutral prose-a:text-orange-500 hover:prose-a:text-orange-600 prose-strong:text-orange-500 prose-headings:text-primary-500">
             @markdom($page->content)
           </div>
+
+          <div class="pt-4 mt-6 border-t border-t-white/5">
+            <a
+              class="text-sm transition-colors text-white/30 hover:text-primary-500"
+              href="https://github.com/laracord/laracord.com/blob/main/content/docs/{{ $page->slug }}.md"
+            >&rarr; Help us improve this page.</a>
+          </div>
         </div>
       </div>
     </div>
