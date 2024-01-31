@@ -13,21 +13,14 @@ Build functional, elegant bots harnessing the full power of [Laravel](https://la
 
 ![Screenshot](https://i.imgur.com/yW2vpPR.png)
 
-## Requirements
-
-Make sure all dependencies have been installed before moving on:
-
-- [PHP](https://secure.php.net/manual/en/install.php) >= 8.1
-- [Composer](https://getcomposer.org/download/)
-
 ## Creating a Project
 
-Before creating your first Laracord project, make sure that your local machine has PHP and Composer installed.
+Before creating your first Laracord project, make sure that your local machine has [PHP](https://secure.php.net/manual/en/install.php) and [Composer](https://getcomposer.org/download/) installed.
 
 After you have installed PHP and Composer, you may create a new Laracord project via Composer's `create-project` command:
 
 ```sh
-$ composer create-project laracord/laracord:dev-main
+$ composer create-project laracord/laracord
 $ cd laracord
 ```
 
