@@ -16,6 +16,7 @@
     "laravel/sanctum": "^3.3",
     "laravel/tinker": "^2.8",
     "livewire/livewire": "^3.3",
+    "log1x/laravel-webfonts": "^1.0",
     "romanzipp/laravel-seo": "^2.6",
     "ryangjchandler/orbit": "^1.2",
     "sinnbeck/markdom": "^2.0",
