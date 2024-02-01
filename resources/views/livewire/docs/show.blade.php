@@ -54,7 +54,7 @@
         </h1>
 
         <div>
-          <div class="mt-8 prose text-white text-opacity-80 prose-neutral prose-a:text-primary-500 hover:prose-a:text-primary-600 prose-strong:text-primary-500 prose-headings:text-primary-500">
+          <div class="mt-8 prose text-white prose-img:shadow prose-img:rounded-lg text-opacity-80 prose-neutral prose-a:text-primary-500 hover:prose-a:text-primary-600 prose-strong:text-primary-500 prose-headings:text-primary-500">
             @markdom($page->content)
           </div>
 
