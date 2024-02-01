@@ -13,9 +13,9 @@
       name="query"
     />
 
-    <button type="submit" class="absolute right-0 mr-2 transition-colors text-white/30 hover:text-primary-500">
+    <div class="absolute right-0 mr-2 transition-colors text-white/30">
       <x-heroicon-o-magnifying-glass class="w-4 h-auto" />
-    </button>
+    </div>
   </div>
 
   <template x-if="isFocused">
