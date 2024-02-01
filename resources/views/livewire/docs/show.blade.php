@@ -21,6 +21,8 @@
             <x-logo />
           </a>
 
+          <x-docs-search class="mt-2" />
+
           <nav class="mt-4">
             <ul class="font-mono">
               @foreach ($menu as $group => $items)
