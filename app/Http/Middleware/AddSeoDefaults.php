@@ -83,7 +83,7 @@ class AddSeoDefaults
 
             Twitter::make()
                 ->name('image')
-                ->content(asset("/social.png?{$timestamp->timestamp}")),
+                ->content(asset("/images/social.png?{$timestamp->timestamp}")),
         ]);
 
         return $next($request);
