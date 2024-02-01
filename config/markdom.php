@@ -9,7 +9,7 @@ return [
      * <p class="lead">
      */
     'classes' => [
-        //
+        'ul' => 'list-disc pl-3',
     ],
 
     /**
@@ -97,6 +97,7 @@ return [
         |
         |--------------------------------------------------------------------------
         */
+
         'heading_permalink' => [
             'html_class' => '!text-white/10 hover:!text-primary-500 !transition !no-underline !mr-2 md:!-ml-6',
             'insert' => 'before',
@@ -130,9 +131,7 @@ return [
         'languages' => [
             'javascript',
             'php',
-            'css',
-            'yaml',
-            'java',
+            'sh',
         ],
     ],
 
