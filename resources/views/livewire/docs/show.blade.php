@@ -16,50 +16,52 @@
   <x-container class="py-4 md:py-16">
     <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
       <div class="md:-mt-2">
-        <a class="ml-1" wire:navigate href="{{ route('home') }}">
-          <x-logo />
-        </a>
+        <div class="md:sticky md:top-8">
+          <a class="ml-1" wire:navigate href="{{ route('home') }}">
+            <x-logo />
+          </a>
 
-        <nav class="mt-4">
-          <ul class="font-mono">
-            @foreach ($menu as $group => $items)
-              <li class="mt-4 first:mt-0">
-                <span class="inline-flex items-center text-sm font-bold transition group">
-                  <x-heroicon-m-hashtag class="w-4 h-auto mr-2 text-white/20" />
+          <nav class="mt-4">
+            <ul class="font-mono">
+              @foreach ($menu as $group => $items)
+                <li class="mt-4 first:mt-0">
+                  <span class="inline-flex items-center text-sm font-bold transition group">
+                    <x-heroicon-m-hashtag class="w-4 h-auto mr-2 text-white/20" />
 
-                  {{ $group }}
-                </span>
+                    {{ $group }}
+                  </span>
 
-                @if ($items)
-                  <ul class="mt-2 space-y-1">
-                    @foreach ($items as $item)
-                      <li>
-                        <a
-                          @class([
-                            'text-primary-500' => request()->url() === route('docs.show', [$item['slug']]),
-                            'text-white/60 hover:text-primary-500' => request()->url() !== route('docs.show', [$item['slug']]),
-                            'text-sm font-medium transition inline-flex items-center group'
-                          ])
-                          wire:navigate
-                          href="{{ route('docs.show', [$item['slug']]) }}"
-                        >
-                          <x-heroicon-m-chevron-right @class([
-                            'w-4 h-auto mr-2',
-                            'text-primary-500' => request()->url() === route('docs.show', [$item['slug']]),
-                            'opacity-0 group-hover:opacity-100 text-primary-500 transition' => request()->url() !== route('docs.show', [$item['slug']]),
-                          ]) />
+                  @if ($items)
+                    <ul class="mt-2 space-y-1">
+                      @foreach ($items as $item)
+                        <li>
+                          <a
+                            @class([
+                              'text-primary-500' => request()->url() === route('docs.show', [$item['slug']]),
+                              'text-white/60 hover:text-primary-500' => request()->url() !== route('docs.show', [$item['slug']]),
+                              'text-sm font-medium transition inline-flex items-center group'
+                            ])
+                            wire:navigate
+                            href="{{ route('docs.show', [$item['slug']]) }}"
+                          >
+                            <x-heroicon-m-chevron-right @class([
+                              'w-4 h-auto mr-2',
+                              'text-primary-500' => request()->url() === route('docs.show', [$item['slug']]),
+                              'opacity-0 group-hover:opacity-100 text-primary-500 transition' => request()->url() !== route('docs.show', [$item['slug']]),
+                            ]) />
 
 
-                          {{ $item['title'] }}
-                        </a>
-                      </li>
-                    @endforeach
-                  </ul>
-                @endif
-              </li>
-            @endforeach
-          </ul>
-        </nav>
+                            {{ $item['title'] }}
+                          </a>
+                        </li>
+                      @endforeach
+                    </ul>
+                  @endif
+                </li>
+              @endforeach
+            </ul>
+          </nav>
+        </div>
       </div>
 
       <div class="col-span-2">
