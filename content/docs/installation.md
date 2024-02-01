@@ -8,11 +8,21 @@ group: 'Getting Started'
 
 ## What is Laracord?
 
-Laracord is a [micro-framework](https://github.com/laracord/framework) that provides a powerful starting point for your next Discord bot.
+Laracord is a [micro-framework](https://github.com/laracord/framework) that provides a beautiful starting point for your next Discord bot.
 
 Build functional, elegant bots harnessing the full power of [Laravel](https://laravel.com/) alongside [DiscordPHP](https://github.com/discord-php/DiscordPHP).
 
 ![Screenshot](/images/laracord-cli.png)
+
+## Features
+
+- Out of the box support for databases, caching, and many other Laravel features thanks to [Laravel Zero](https://laravel-zero.com/).
+- Instantly generate working bot commands and event listeners with 0 knowledge.
+- Automatic handling of registering/updating/unregistering application slash commands.
+- Generate asynchronous services/tasks that run parallel to the bot.
+- Fully configurable and extendable.
+- Beautiful console logging with timestamps.
+- Fully documented and maintained.
 
 ## Creating a Project
 
