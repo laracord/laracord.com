@@ -1,54 +1,7 @@
-@import 'tippy.js/dist/tippy.css';
-@import 'fonts';
+@import 'common/fonts';
+@import 'common/tooltips';
+@import 'common/code';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.prose img {
-  @apply rounded-lg shadow;
-}
-
-code::before,
-code::after {
-  content: none !important;
-}
-
-pre {
-  @apply !p-0 !bg-transparent !font-mono max-h-[40rem];
-
-  .hljs {
-    @apply !bg-black !bg-opacity-25 !p-4;
-  }
-}
-
-code {
-  @apply !font-mono;
-}
-
-p > code.hljs {
-  @apply !text-primary-300;
-
-  .hljs-selector-tag {
-    @apply !text-primary-300;
-  }
-}
-
-.hljs {
-  @apply !bg-black !bg-opacity-25;
-
-  .hljs-string,
-  .hljs-title,
-  .hljs-name,
-  .hljs-type,
-  .hljs-attribute,
-  .hljs-symbol,
-  .hljs-bullet,
-  .hljs-built_in,
-  .hljs-addition,
-  .hljs-variable,
-  .hljs-template-tag,
-  .hljs-template-variable {
-    @apply !text-primary-300;
-  }
-}
