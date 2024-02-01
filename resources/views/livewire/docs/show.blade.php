@@ -1,7 +1,7 @@
 <div>
   <x-container class="py-4 md:py-16">
     <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-      <div>
+      <div class="md:-mt-2">
         <a class="ml-1" wire:navigate href="{{ route('home') }}">
           <x-logo />
         </a>
@@ -54,7 +54,7 @@
         </h1>
 
         <div>
-          <div class="mt-8 prose text-white text-opacity-80 prose-neutral prose-a:text-orange-500 hover:prose-a:text-orange-600 prose-strong:text-orange-500 prose-headings:text-primary-500">
+          <div class="mt-8 prose text-white text-opacity-80 prose-neutral prose-a:text-primary-500 hover:prose-a:text-primary-600 prose-strong:text-primary-500 prose-headings:text-primary-500">
             @markdom($page->content)
           </div>
 
