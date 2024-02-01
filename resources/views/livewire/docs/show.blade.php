@@ -14,7 +14,7 @@
   </div>
 
   <x-container class="py-4 md:py-16">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    <div class="grid grid-cols-1 gap-y-8 md:gap-x-12 md:grid-cols-3">
       <div class="md:-mt-2">
         <div class="md:sticky md:top-8">
           <a class="ml-1" wire:navigate href="{{ route('home') }}">
