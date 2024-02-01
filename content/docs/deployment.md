@@ -38,4 +38,4 @@ $ ./laracord
 
 If you are using Pterodactyl for existing applications/servers, you can easily run your Laracord bot using the officially supported [Pterodactyl egg](https://github.com/laracord/pterodactyl-egg).
 
-![Pterodactyl screenshot](/images/pterodactyl.png)
+![Pterodactyl Screenshot](/images/pterodactyl.png)
