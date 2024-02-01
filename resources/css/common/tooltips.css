@@ -1,0 +1,25 @@
+@import 'tippy.js/dist/tippy.css';
+
+.tippy-box[data-theme~='fancy'] {
+  @apply border-b-4 border-primary-500;
+}
+
+.tippy-box {
+  @apply bg-black text-white/75 text-[11px] shadow px-1 py-px;
+
+  &[data-placement^='top'] > .tippy-arrow::before {
+    @apply border-t-black border-opacity-95;
+  }
+
+  &[data-placement^='bottom'] > .tippy-arrow::before {
+    @apply border-b-black border-opacity-95;
+  }
+
+  &[data-placement^='left'] > .tippy-arrow::before {
+    @apply border-l-black border-opacity-95;
+  }
+
+  &[data-placement^='right'] > .tippy-arrow::before {
+    @apply border-r-black border-opacity-95;
+  }
+}
