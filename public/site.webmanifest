@@ -1,19 +1,19 @@
 {
-    "name": "Laracord",
-    "short_name": "Laracord",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#f97316",
-    "background_color": "#f97316",
-    "display": "standalone"
+  "name": "Laracord",
+  "short_name": "Laracord",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#e5392a",
+  "background_color": "#e5392a",
+  "display": "standalone"
 }
