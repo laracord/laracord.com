@@ -16,6 +16,8 @@
     "vite": "^5.0.11"
   },
   "dependencies": {
+    "@ryangjchandler/alpine-clipboard": "^2.3.0",
+    "alpinejs-notify": "^1.0.3",
     "tippy.js": "^6.3.7"
   }
 }

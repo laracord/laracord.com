@@ -262,6 +262,11 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.9.6.tgz#2c1fb69e02a3f1506f52698cfdc3a8b6386df9a6"
   integrity sha512-jqzNLhNDvIZOrt69Ce4UjGRpXJBzhUBzawMwnaDAwyHriki3XollsewxWzOzz+4yOFDkuJHtTsZFwMxhYJWmLQ==
 
+"@ryangjchandler/alpine-clipboard@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@ryangjchandler/alpine-clipboard/-/alpine-clipboard-2.3.0.tgz#44d7a9e8c4446fd24ece2d6be0d23fac7dd59b20"
+  integrity sha512-r1YL/LL851vSemjgcca+M6Yz9SNtA9ATul8nJ0n0sAS1W3V1GUWvH0Od2XdQF1r36YJF+/4sUc0eHF/Zexw7dA==
+
 "@ryangjchandler/alpine-tooltip@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@ryangjchandler/alpine-tooltip/-/alpine-tooltip-2.0.0.tgz#633c3bb0e07339f91e3a6885b37e0d600b769d30"
@@ -290,6 +295,11 @@
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
+
+alpinejs-notify@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/alpinejs-notify/-/alpinejs-notify-1.0.3.tgz#4cd082717d2c2968b8443c737a780b521b8cc18b"
+  integrity sha512-08hSo6sg1Q4NARyFffg7lfrIdIPg/zRNkmnqLNjZo4w2y8GWrxDwxHQhVASzFGGb3aDaOkzkxBR9YJV3ecz7cA==
 
 ansi-regex@^5.0.1:
   version "5.0.1"
