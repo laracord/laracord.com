@@ -5,7 +5,17 @@
 
       <p class="mt-3 text-xl">Create elegant <b>Discord</b> bots with the power of <b>Laravel</b>.</p>
 
-      <code class="px-3 py-2 my-6 text-sm bg-black rounded-lg">
+      <code
+        class="relative px-3 py-2 my-6 text-sm bg-black rounded-lg cursor-pointer"
+        x-clipboard.raw="composer create-project laracord/laracord"
+        x-tooltip.raw.html="Copy to <span class='text-primary-500'>clipboard</span>."
+        x-on:click="$notify('Successfully copied to clipboard.', {
+          wrapperId: 'notifications',
+          templateId: 'notification-success',
+          autoClose: 2000,
+          autoRemove: 2500,
+        })"
+      >
         <span class="text-primary-500">$</span> composer create-project laracord/laracord
       </code>
 
