@@ -14,9 +14,27 @@
           Documentation
         </x-button>
 
-        <x-button outline class="ml-4" url="https://github.com/laracord/laracord" target="_blank">
+        <x-button
+          outline
+          class="ml-4"
+          url="https://github.com/laracord/laracord"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View on GitHub
         </x-button>
+      </div>
+
+      <div class="mt-2">
+        <a
+          href="https://github.com/sponsors/log1x"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center text-xs tracking-widest transition group text-white/75 hover:scale-105 hover:text-white"
+        >
+          <x-heroicon-s-heart class="w-3 h-3 mr-1.5 text-red-500 group-hover:animate-pulse" />
+          Support the project
+        </a>
       </div>
     </div>
   </x-container>
