@@ -27,11 +27,19 @@ $ cd laracord
 
 ## Initial Configuration
 
-In order to run the Bot, you will have to create a Application using the [Discord Developer Portal](https://discord.com/developers/applications) and obtain a **bot token**.
+In order to run the Bot, you will have to create an **Application** using the [Discord Developer Portal](https://discord.com/developers/applications) and obtain a **bot token**.
 
-By default, the Bot will also require you enable the necessary [Intents](https://discord.com/developers/docs/topics/gateway#gateway-intents). These can be found and enabled in the developer portal under `Settings > Bot > Privileged Gateway Intents`.
+By default, the Bot will also require you enable the necessary [Intents](https://discord.com/developers/docs/topics/gateway#gateway-intents).
 
-Once you obtain a token, you can configure it inside of `.env` or `config/discord.php`.
+These can be found and enabled in the developer portal under `Settings > Bot > Privileged Gateway Intents`.
+
+![Intents Screenshot](/images/discord-intents.png)
+
+Once you obtain a bot token, you can configure it inside of `.env`:
+
+```env
+DISCORD_TOKEN=...
+```
 
 ## Booting Laracord
 

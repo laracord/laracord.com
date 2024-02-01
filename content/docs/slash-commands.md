@@ -75,7 +75,9 @@ To only register a slash command to a specific guild/server, you may set the `$g
 protected $guild = 'your-guild-id';
 ```
 
-Adding options to your slash command can be done by passing an array of options to the `$options` property **or** overriding the `options()` method. Options can be specified as a raw array or by passing an array of [DiscordPHP Option Parts](https://github.com/discord-php/DiscordPHP/wiki/Option_commands).
+Adding options to your slash command can be done by passing an array of options to the `$options` property **or** overriding the `options()` method.
+
+Options can be specified as a raw array or by passing an array of [DiscordPHP Option Parts](https://github.com/discord-php/DiscordPHP/wiki/Option_commands):
 
 ```php
 use Discord\Parts\Interactions\Command\Option;

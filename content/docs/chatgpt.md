@@ -36,7 +36,7 @@ $ php laracord make:command Chat
 
 ## Code Example
 
-I won't bore you with a breakdown of the following code, but it achieves the following goals:
+I won't bore you with a breakdown of the code, but it achieves the following goals:
 
 - Requires an argument (message) to be passed.
 - Trims incoming messages to 384 characters to prevent abuse.

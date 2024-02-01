@@ -24,7 +24,7 @@ For more information on `app:build`, you can refer to the [Laravel Zero docs](ht
 
 ## Booting in Production
 
-When your bot is built for production, it will expect to live alongside a `.env` file and will automatically create a `database.sqlite` and `cache` folder alongside the binary on first run.
+When your bot is built for production, it will expect to live alongside a `.env` file and will automatically create a `database.sqlite` file and `cache` folder alongside the binary on first run.
 
 To boot your bot, use the built `PHAR` file the same way you worked with Laracord locally on a server running PHP 8.1+:
 

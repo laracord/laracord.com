@@ -16,11 +16,11 @@ Creating an event handler can be done using the `laracord` binary:
 $ php laracord make:event Example
 ```
 
-When creating an event, you will be prompted to choose a listener from a searchable select box.
+When creating an event, you will be prompted to choose a Discord listener from a searchable select box:
 
 ![Event Screenshot](/images/make-event.png)
 
-Once you select a listener, an Event class will automatically be generated including the necessary namespaces/typing specific to the handler.
+Once you select a listener, an Event class will automatically be generated including the necessary namespaces/typing specific to the listener.
 
 Here is an example of a simple `MESSAGE_CREATE` event handler that logs a message to console everytime a message is created:
 

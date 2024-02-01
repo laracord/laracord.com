@@ -6,11 +6,11 @@ priority: 2
 group: 'Getting Started'
 ---
 
-Out of the box, Laracord consists of sane default configuration and in most cases, you will only need to modify your `.env` file.
+Out of the box, Laracord consists of a sane default configuration and in most cases, you will only need to modify your `.env` file.
 
-Outside of `.env`, most Laracord configuration is done inside `config/discord.php`.
+Outside of `.env`, most Laracord configuration is done inside of `config/discord.php`.
 
-The `discord.php` configuration file is heavily documented and attempts to explain each config value in an understandable way.
+The `discord.php` configuration file is heavily documented and attempts to explain each config value in a way that is easy to understand.
 
 ## Default Configuration
 
@@ -139,4 +139,15 @@ return [
     ],
 
 ];
+```
+
+## Hide Commands on Boot
+
+By default, Laracord displays a table of registered commands upon booting. To prevent this default behavior, set the `$showCommands` property to `false` in your `Bot.php` file:
+
+```php
+/**
+ * Determine whether to show the commands on boot.
+ */
+protected bool $showCommands = false;
 ```
