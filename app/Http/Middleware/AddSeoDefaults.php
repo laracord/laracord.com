@@ -19,6 +19,8 @@ class AddSeoDefaults
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $timestamp = cache()->rememberForever('deployed_at', fn () => now());
+
         seo()->charset();
         seo()->viewport();
 
@@ -81,7 +83,7 @@ class AddSeoDefaults
 
             Twitter::make()
                 ->name('image')
-                ->content(asset('/social.png')),
+                ->content(asset("/social.png?{$timestamp->timestamp}")),
         ]);
 
         return $next($request);

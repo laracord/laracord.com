@@ -14,16 +14,16 @@ class SitemapController extends Controller
      */
     public function index(Request $request)
     {
-        $lastModified = cache()->rememberForever('docs.lastmod', fn () => now()->toAtomString());
+        $lastModified = cache()->rememberForever('deployed_at', fn () => now());
 
         $pages = [
             'url' => route('home'),
-            'lastmod' => $lastModified,
+            'lastmod' => $lastModified->toAtomString(),
         ];
 
         $pages = [...[$pages], ...Docs::all()->map(fn ($page) => [
             'url' => $page->url,
-            'lastmod' => $lastModified,
+            'lastmod' => $lastModified->toAtomString(),
         ])];
 
         return response()
