@@ -10,6 +10,7 @@ return [
      */
     'classes' => [
         'ul' => 'list-disc pl-3',
+        'code' => 'scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-black/50 scrollbar-corner-black/50 max-h-[40rem]',
     ],
 
     /**
