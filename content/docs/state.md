@@ -2,8 +2,8 @@
 slug: state
 title: 'State'
 description: 'Easily access the full state of your Laracord Discord bot in any class.'
-priority: 5
-group: Usage
+priority: 1
+group: Advanced
 ---
 
 Any class extended from Laracord's framework will typically have multiple methods available to access various components/state such as the Bot, Discord, and Console instances.

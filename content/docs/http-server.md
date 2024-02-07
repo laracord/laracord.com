@@ -2,7 +2,7 @@
 slug: http-server
 title: 'HTTP Server'
 description: 'Laracord provides an HTTP server with Laravel routing out of the box.'
-priority: 6
+priority: 5
 group: Usage
 ---
 

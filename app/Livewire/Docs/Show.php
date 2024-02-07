@@ -23,6 +23,7 @@ class Show extends Component
     protected $groups = [
         'Getting Started',
         'Usage',
+        'Digging Deeper',
         'Advanced',
         'Examples',
     ];
