@@ -11,6 +11,7 @@ return [
     'classes' => [
         'ul' => 'list-disc pl-3',
         'code' => 'scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-black/50 scrollbar-corner-black/50 max-h-[40rem]',
+        'blockquote' => '[quotes:none] text-white/80 not-italic border-l-blue-500 bg-black/25 py-3 rounded text-sm [&_p]:m-0 [&>p_code]:!text-blue-500 [&_h4]:text-blue-500 [&_h4]:m-0 [&_h4]:mb-2 [&_h4_a]:hidden',
     ],
 
     /**
@@ -101,6 +102,7 @@ return [
 
         'heading_permalink' => [
             'html_class' => '!text-white/10 hover:!text-primary-500 !transition !no-underline !mr-2 md:!-ml-6',
+            'id_prefix' => 'h-',
             'insert' => 'before',
             'title' => 'Permalink',
             'symbol' => '#',
