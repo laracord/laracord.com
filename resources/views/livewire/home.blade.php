@@ -1,12 +1,14 @@
 <div>
   <x-container>
-    <div class="flex flex-col items-center h-screen py-8 text-center md:py-0 md:justify-center">
+    <div class="flex flex-col items-center justify-center h-screen py-8 text-center">
       <x-logo size="5xl" />
 
-      <p class="mt-3 text-xl">Create elegant <b>Discord</b> bots with the power of <b>Laravel</b>.</p>
+      <p class="mt-3 text-lg md:text-xl">
+        Create elegant <b>Discord</b> bots with the power of <b>Laravel</b>.
+      </p>
 
       <code
-        class="relative px-3 py-2 my-6 text-sm bg-black rounded-lg cursor-pointer"
+        class="relative px-3 py-2 mt-6 mb-4 text-sm bg-black rounded-lg cursor-pointer"
         x-clipboard.raw="composer create-project laracord/laracord"
         x-tooltip.raw.html="Copy to <span class='text-primary-500'>clipboard</span>."
         x-on:click="$notify('Successfully copied to clipboard.', {
@@ -20,18 +22,18 @@
       </code>
 
       <div class="flex items-center justify-center">
-        <x-button wire:navigate url="{{ route('docs.show', ['installation']) }}">
+        <x-button wire:navigate :url="route('docs.show', ['installation'])">
           Documentation
         </x-button>
 
         <x-button
           outline
           class="ml-4"
-          url="https://github.com/laracord/laracord"
+          :url="route('discord')"
           target="_blank"
           rel="noopener noreferrer"
         >
-          View on GitHub
+          Join Discord
         </x-button>
       </div>
 
