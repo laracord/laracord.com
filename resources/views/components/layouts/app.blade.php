@@ -11,6 +11,18 @@
   </head>
 
   <body class="font-sans text-base leading-normal tracking-normal bg-black/[93%] text-white/80">
+    <div class="absolute top-6 right-6">
+      <a
+        aria-label="View project on GitHub"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="transition-colors text-white/50 hover:text-white"
+        href="https://github.com/laracord/laracord"
+      >
+        @svg('github', 'w-5 h-auto fill-current')
+      </a>
+    </div>
+
     <div>
       {{ $slot }}
     </div>
