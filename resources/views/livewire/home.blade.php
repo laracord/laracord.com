@@ -1,6 +1,6 @@
 <div>
   <x-container>
-    <div class="flex flex-col items-center h-screen pt-16 text-center md:py-8 md:justify-center">
+    <div class="flex flex-col items-center h-screen pt-16 overflow-hidden text-center md:py-8 md:justify-center">
       <x-logo size="5xl" />
 
       <p class="mt-3 text-lg md:text-xl">
