@@ -10,6 +10,10 @@ Laracord comes with full support for application commands (slash commands) out o
 
 This includes automatically syncing changes you make to your command as well as re-registering it in the event that you bind it to a specific guild.
 
+> #### Note
+>
+> **Do not** attempt to use Laracord on the same bot token as an existing bot with application commands. Laracord will **sync/cache slash commands** on boot and will **remove** any commands that are not registered with Laracord.
+
 ## Creating Slash Commands
 
 Laracord has full support for slash commands out of the box. When a command is created, updated, or removed – the Discord application command repository is automatically updated.

@@ -24,6 +24,20 @@ Build functional, elegant bots harnessing the full power of [Laravel](https://la
 - Beautiful console logging with timestamps.
 - Fully documented and maintained.
 
+## Requirements
+
+Laracord utilizes Composer for managing dependencies. Before using Laracord, please ensure you have Composer installed on your machine.
+
+- [PHP](https://www.php.net/releases/) >= 8.1
+- [Composer](https://getcomposer.org/)
+
+The following PHP extensions are also required:
+
+- [fileinfo](https://www.php.net/manual/en/book.fileinfo.php)
+- [sqlite3](https://www.php.net/manual/en/book.sqlite3.php)
+- [pdo_sqlite](https://www.php.net/manual/en/ref.pdo-sqlite.php)
+- [sodium](https://www.php.net/manual/en/book.sodium.php) (to build for production)
+
 ## Creating a Project
 
 Before creating your first Laracord project, make sure that your local machine has [PHP](https://secure.php.net/manual/en/install.php) and [Composer](https://getcomposer.org/download/) installed.
@@ -58,6 +72,8 @@ To boot your bot, simply run `laracord` with no arguments passed:
 ```sh
 $ php laracord
 ```
+
+When booting Laracord using a bot token that is currently not in any servers, Laracord will automatically output an invite link in console for convenience.
 
 ### Adding a Bot Admin
 
