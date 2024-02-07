@@ -164,3 +164,11 @@ Once a token has been generated, the easiest way to access your protected route 
 ```
 http://localhost:8080/?token=<token>
 ```
+
+## Debugging
+
+While in an environment that is not `production`, the HTTP server will return Symfony error pages and the default Laravel response code pages.
+
+![Exception Screenshot](/images/http-server-exception.png)
+
+When in production, all responses are instead returned as generic `JSON` and exception messages are not shown.
