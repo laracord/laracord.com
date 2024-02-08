@@ -113,50 +113,6 @@ class Chat extends Command
      */
     public function handle($message, $args)
     {
-        if (! $args) {
-            return $this
-                ->message('You must provide a message.')
-                ->title('Chat')
-                ->error()
-                ->send($message);
-        }
-
-        $message->channel->broadcastTyping()->done(function () use ($message, $args) {
-            $question = trim(
-                implode(' ', $args)
-            );
-
-            $question = Str::limit($question, 384);
-
-            $key = "{$message->channel->id}.chat.responses";
-
-            $messages = cache()->get($key, [['role' => 'system', 'content' => $this->prompt]]);
-            $messages[] = ['role' => 'user', 'content' => $question];
-
-            $result = OpenAI::chat()->create([
-                'model' => 'gpt-3.5-turbo',
-                'messages' => $messages,
-            ]);
-
-            $messages[] = ['role' => 'assistant', 'content' => $result->choices[0]->message->content];
-
-            cache()->put($key, $messages, now()->addMinutes(1));
-
-            return $this
-                ->message($response)
-                ->send($message);
-        });
-    }
-
-    /**
-     * Execute the Discord command.
-     *
-     * @param  \Discord\Parts\Channel\Message  $message
-     * @param  array  $args
-     * @return mixed
-     */
-    public function handle($message, $args)
-    {
         $input = trim(
             implode(' ', $args ?? [])
         );
