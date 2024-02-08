@@ -67,6 +67,14 @@ class Show extends Component
             $menu[$doc->group][] = [
                 'title' => $doc->title,
                 'slug' => $doc->slug,
+                'sections' => request()->url() === route('docs.show', [$doc->slug])
+                    ? collect(explode("\n", $doc->content))
+                        ->filter(fn ($line) => Str::startsWith($line, '## '))
+                        ->map(fn ($line) => Str::after($line, '## '))
+                        ->mapWithKeys(fn ($section) => [$section => Str::slug($section)])
+                        ->map(fn ($section) => "#content-{$section}")
+                        ->toArray()
+                    : [],
             ];
         }
 
