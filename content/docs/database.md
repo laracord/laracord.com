@@ -24,7 +24,7 @@ DB_PASSWORD=
 
 ## Creating Model
 
-Creating a database Model can be done using the `laracord` binary:
+Creating a database model can be done using the `laracord` binary:
 
 ```php
 $ php laracord make:model Balance
