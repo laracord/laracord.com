@@ -1,8 +1,8 @@
 ---
 slug: chatgpt
-title: 'ChatGPT Example'
+title: 'Chat Bot'
 description: 'Easily create a Discord bot that interacts with ChatGPT using Laracord.'
-priority: 1
+priority: 2
 group: Examples
 ---
 
