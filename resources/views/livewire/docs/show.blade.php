@@ -41,18 +41,6 @@
 
                             {{ $item['title'] }}
                           </a>
-
-                          @if ($item['sections'])
-                            <ul class="mt-1 mb-4 ml-6 space-y-2 text-sm">
-                              @foreach ($item['sections'] as $label => $value)
-                                <li>
-                                  <a href="{{ $value }}" class="transition text-white/35 hover:text-primary-500">
-                                    {{ $label }}
-                                  </a>
-                                </li>
-                              @endforeach
-                            </ul>
-                          @endif
                         </li>
                       @endforeach
                     </ul>
