@@ -20,7 +20,9 @@ $ php laracord app:build
 
 Once the build command completes, the bundled bot file with be located in `builds/`.
 
-For more information on `app:build`, you can refer to the [Laravel Zero docs](https://laravel-zero.com/docs/build-a-standalone-application).
+> #### Note
+>
+> For more information on `app:build`, you can refer to the [Laravel Zero docs](https://laravel-zero.com/docs/build-a-standalone-application).
 
 ## Booting in Production
 

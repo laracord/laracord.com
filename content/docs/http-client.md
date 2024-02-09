@@ -8,7 +8,9 @@ group: 'Digging Deeper'
 
 Laracord provides out of the box support for Laravel's expressive HTTP client based on [Guzzle](https://github.com/guzzle/guzzle). This allows an extremely easy way to handle making API requests from your bot.
 
-For advanced usage, we strongly suggest referring to the official [HTTP Client Laravel documentation](https://laravel.com/docs/10.x/http-client).
+> #### Note
+>
+> For advanced usage, we strongly suggest referring to the official [HTTP Client Laravel documentation](https://laravel.com/docs/10.x/http-client).
 
 ## Usage
 

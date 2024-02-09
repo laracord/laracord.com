@@ -20,6 +20,7 @@ Build functional, elegant bots harnessing the full power of [Laravel](https://la
 - Instantly generate working bot commands and event listeners with 0 knowledge.
 - Automatic handling of registering/updating/unregistering application slash commands.
 - Generate asynchronous services/tasks that run parallel to the bot.
+- Optional HTTP Server with native Laravel routing and Livewire support.
 - Fully configurable and extendable.
 - Beautiful console logging with timestamps.
 - Fully documented and maintained.

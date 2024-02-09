@@ -8,7 +8,9 @@ group: 'Digging Deeper'
 
 Laravel provides Laracord with a powerful filesystem abstraction out of the box utilizing [Flysystem](https://github.com/thephpleague/flysystem). This allows you to easily work with files on your system.
 
-For advanced usage, we strongly suggest checking out the official [Laravel Filesystem documentation](https://laravel.com/docs/10.x/filesystem).
+> #### Note
+>
+> For advanced usage, we strongly suggest checking out the official [Laravel Filesystem documentation](https://laravel.com/docs/10.x/filesystem).
 
 ## File Usage
 

@@ -8,7 +8,9 @@ group: Usage
 
 Laracord provides an optional [reactphp/http](https://github.com/reactphp/http) server with Laravel routing support out of the box. This can be useful for creating webhooks and/or an API to interact with your bot.
 
-Please refer to the [Security](#content-security) section for generating an API token.
+> #### Note
+>
+> Please refer to the [Security](#content-security) section for generating an API token.
 
 ## Configuration
 

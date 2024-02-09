@@ -71,7 +71,8 @@ return [
     |
     | Here you may specify the command prefix for the Discord bot. This
     | prefix will be used to distinguish commands from regular chat
-    | messages. You may change this to anything you like.
+    | messages. To use mentioning the bot as a prefix, use "@mention".
+    | To use multiple prefixes, you may pass an array instead.
     |
     */
 
@@ -96,6 +97,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | HTTP Server
+    |--------------------------------------------------------------------------
+    |
+    | The Laracord HTTP server allows you to receive and respond to HTTP
+    | requests from the bot at the specified address/port. This can be useful
+    | for creating a RESTful API for your bot.
+    |
+    | The HTTP server is automatically started when a `routes.php` file is
+    | present and contains valid routes. You can override this behavior by
+    | setting this option to `false`.
+    |
+    */
+
+    'http' => env('HTTP_SERVER', ':8080'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Timestamp Format
     |--------------------------------------------------------------------------
     |
@@ -106,6 +124,21 @@ return [
     */
 
     'timestamp' => 'h:i:s A',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Bot Admins
+    |--------------------------------------------------------------------------
+    |
+    | Here you may manually specify bot admins without using the User model.
+    | These users will have access to all bot admin commands. User's must
+    | be specified by their Discord user ID.
+    |
+    */
+
+    'admins' => [
+        //
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -135,6 +168,21 @@ return [
     */
 
     'services' => [
+        //
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Additional Events
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify any additional events to listen for in your
+    | Discord bot. These events will be registered in addition to the
+    | events automatically registered from your project.
+    |
+    */
+
+    'events' => [
         //
     ],
 

@@ -8,7 +8,9 @@ group: 'Digging Deeper'
 
 Laracord has full support for Laravel's ORM [Eloquent](https://laravel.com/docs/10.x/eloquent) and utilizes it out of the box for the `User` model alongside SQLite.
 
-For extensive documentation on Eloquent, we highly suggest taking a look at the [Laravel documentation](https://laravel.com/docs/10.x/eloquent).
+> #### Note
+>
+> For extensive documentation on Eloquent, we highly suggest taking a look at the [Laravel documentation](https://laravel.com/docs/10.x/eloquent).
 
 ## Using MySQL
 
@@ -22,7 +24,7 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-## Creating Model
+## Creating a Model
 
 Creating a database model can be done using the `laracord` binary:
 
@@ -51,7 +53,7 @@ class Balance extends Model
 }
 ```
 
-## Creating Migration
+## Creating a Migration
 
 Outside of using the `-m` option on `make:model`, you may also generate a migration using the `make:migration` console command:
 
