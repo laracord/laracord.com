@@ -6,7 +6,7 @@ priority: 1
 group: Examples
 ---
 
-Laracord's HTTP server while implementing Laravel's routing also brings in the necessary requirements for Livewire.
+Laracord's [HTTP server](/docs/http-server) while implementing Laravel's routing also brings in the necessary requirements for [Livewire](https://livewire.laravel.com/).
 
 While Laracord has not been thoroughly tested with everything Livewire has to offer, it has been tested with basic full page components and can be a very quick and powerful way to create a basic web interface to interact with your bot instance in real-time without Javascript.
 
@@ -24,7 +24,7 @@ Start by installing Livewire using Composer:
 $ composer require livewire/livewire
 ```
 
-Once installed, you will need to generate an application key (`APP_KEY`) using the `laracord` binary:
+Once installed, you will need to generate an application key (`APP_KEY`). This can be done using the `laracord` binary:
 
 ```sh
 $ php laracord key:generate
