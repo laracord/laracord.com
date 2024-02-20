@@ -23,7 +23,7 @@ Route::get('/docs', fn () => redirect()->route('docs.show', 'installation'))
 Route::get('/docs/{page:slug}', DocsShow::class)
     ->name('docs.show');
 
-Route::get('/discord', fn () => redirect('https://discord.gg/HtbhDTYM'))
+Route::get('/discord', fn () => redirect('https://discord.gg/sAgPrRSUZg'))
     ->name('discord');
 
 Route::get('/sitemap.xml', 'App\Http\Controllers\SitemapController@index');
