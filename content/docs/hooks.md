@@ -28,12 +28,21 @@ public function beforeBoot(): void
 
 The `afterBoot()` method can be defined to run code after the bot is booted. This typically happens the first time the Discord `ready` event is fired.
 
+Here's an example setting the bot's activity presence on boot:
+
 ```php
+use Discord\Parts\User\Activity;
+
 /**
  * Actions to run after booting the bot.
  */
 public function afterBoot(): void
 {
-    $this->console()->log('Hello world!');
+    $activity = $this->discord()->factory(Activity::class, [
+        'type' => Activity::TYPE_PLAYING,
+        'name' => 'with Laracord',
+    ]);
+
+    $this->discord()->updatePresence($activity);
 }
 ```
