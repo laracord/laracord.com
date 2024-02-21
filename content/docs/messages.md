@@ -260,6 +260,21 @@ $message = $this
     ->button('Visit Laracord', 'https://laracord.com', emoji: '💻');
 ```
 
+When using a custom emoji from a server your bot is in, you will have to pass the emoji along with it's internal ID.
+
+> #### Tip
+>
+> An easy way to obtain this as a string is to escape the emoji in a Discord chat message.
+> `\:laracord:` would return `<:laracord:1204740745286656050>` containing the string needed.
+
+Once you obtain the emoji ID, you can then pass it to `emoji` as a string:
+
+```php
+$message = $this
+    ->message('Hello world!')
+    ->button('Visit Laracord', 'https://laracord.com', emoji: ':laracord:1204740745286656050');
+```
+
 #### Interactions
 
 Interactions allow you to have the bot respond or perform an action when a button is clicked. This can be achieved by passing an `Interaction` callback as the button's `value` instead of a string:
