@@ -26,7 +26,7 @@ $this
 
 This gives you a sensibly styled embed with the username and avatar of your bot.
 
-![Simple Example](https://i.imgur.com/egNC4sy.png)
+![Simple Message](/images/simple-message.png)
 
 To send a plain message without an embed, you may pass your content to the `->body()` method:
 
