@@ -1,24 +1,25 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-8eHjm4Rq.css",
-    "isEntry": true,
-    "src": "resources/css/app.css"
+    "file": "assets/app-DR_0t8KN.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
   },
   "resources/fonts/inter-v13-latin-500.woff2": {
-    "file": "assets/inter-v13-latin-500-JFocBHQx.woff2",
+    "file": "assets/inter-v13-latin-500-kWhwEdDH.woff2",
     "src": "resources/fonts/inter-v13-latin-500.woff2"
   },
   "resources/fonts/inter-v13-latin-700.woff2": {
-    "file": "assets/inter-v13-latin-700-ts3xWOyE.woff2",
+    "file": "assets/inter-v13-latin-700-C2zfFY7I.woff2",
     "src": "resources/fonts/inter-v13-latin-700.woff2"
   },
   "resources/fonts/inter-v13-latin-regular.woff2": {
-    "file": "assets/inter-v13-latin-regular-U9R_j0_y.woff2",
+    "file": "assets/inter-v13-latin-regular-BT1H-PT_.woff2",
     "src": "resources/fonts/inter-v13-latin-regular.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-gqDoiWMx.js",
-    "isEntry": true,
-    "src": "resources/js/app.js"
+    "file": "assets/app-BqpgaJXz.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
   }
 }

@@ -51,7 +51,11 @@
     @stack('scripts')
 
     @production
-      <script src="https://cdn.usefathom.com/script.js" data-site="TCWDOMUK" data-spa="auto" defer></script>
+      <script src="https://cdn.usefathom.com/script.js" data-site="TCWDOMUK" defer></script>
+
+      <script>
+        document.addEventListener('livewire:navigated', () => window.fathom && window.fathom.trackPageview());
+      </script>
     @endproduction
   </body>
 </html>

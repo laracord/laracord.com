@@ -8,17 +8,17 @@
   "devDependencies": {
     "@ryangjchandler/alpine-tooltip": "^2.0.0",
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
-    "autoprefixer": "^10.4.16",
-    "laravel-vite-plugin": "^1.0.1",
-    "postcss": "^8.4.35",
-    "tailwind-scrollbar": "^3.0.5",
-    "tailwindcss": "^3.4.1",
-    "vite": "^5.0.11"
+    "@tailwindcss/typography": "^0.5.13",
+    "autoprefixer": "^10.4.19",
+    "laravel-vite-plugin": "^1.0.2",
+    "postcss": "^8.4.38",
+    "tailwind-scrollbar": "^3.1.0",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.10"
   },
   "dependencies": {
     "@ryangjchandler/alpine-clipboard": "^2.3.0",
-    "alpinejs-notify": "^1.0.3",
+    "alpinejs-notify": "^1.0.4",
     "tippy.js": "^6.3.7"
   }
 }
