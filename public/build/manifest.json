@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-8eHjm4Rq.css",
+    "file": "assets/app-w0nb6QsI.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -17,7 +17,7 @@
     "src": "resources/fonts/inter-v13-latin-regular.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-gqDoiWMx.js",
+    "file": "assets/app-cvUUaHtf.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
