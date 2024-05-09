@@ -29,7 +29,7 @@ Build functional, elegant bots harnessing the full power of [Laravel](https://la
 
 Laracord utilizes Composer for managing dependencies. Before using Laracord, please ensure you have Composer installed on your machine.
 
-- [PHP](https://www.php.net/releases/) >= 8.1
+- [PHP](https://www.php.net/releases/) >= 8.2
 - [Composer](https://getcomposer.org/)
 
 The following PHP extensions are also required:
