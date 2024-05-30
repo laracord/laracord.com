@@ -119,3 +119,52 @@ public function options()
     ];
 }
 ```
+
+## Retrieving Option Values
+
+Laracord makes it easy to retrieve any passed command option values in your handler using the `value()` method.
+
+Let's use the following options as an example:
+
+```php
+use Discord\Parts\Interactions\Command\Option;
+
+protected $options = [
+    [
+        'name' => 'set',
+        'description' => 'Manage the ticket system.',
+        'type' => Option::SUB_COMMAND_GROUP,
+        'options' => [
+            [
+                'name' => 'channel',
+                'description' => 'Set the ticket channel.',
+                'type' => Option::SUB_COMMAND,
+                'options' => [
+                    [
+                        'name' => 'id',
+                        'description' => 'The channel ID.',
+                        'type' => Option::STRING,
+                        'required' => true,
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
+```
+
+In the above example, we have a `set` command group for our `/ticket` command. Inside of it, it has a sub command called `channel` which ultimately has an `id` which gets passed by the user and used in the command.
+
+To retrieve that `id`, we can simply transverse through the nested options using dot notation:
+
+```php
+$id = $this->value('set.channel.id', $default = null);
+```
+
+By default, `value` will return `null` when no option value is found. This makes it safe to use when checking for the existence of option keys and handling command logic depending on what is passed.
+
+To retrieve all flattened option values, you can simply omit passing a key:
+
+```php
+$values = $this->value();
+```
