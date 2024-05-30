@@ -52,7 +52,7 @@ If you need to set this value dynamically, you may do so in the `config/discord.
 
 Routes can be defined inside of the `routes()` method in your `Bot` class located at `app/Bot.php`.
 
-By default, an example route is provided but is commented out:
+By default, an example route for `web` and `api` is provided but is commented out:
 
 ```php
 /**
@@ -60,8 +60,12 @@ By default, an example route is provided but is commented out:
  */
 public function routes(): void
 {
-    Route::middleware('auth')->group(function () {
-        Route::get('/', fn () => collect($this->registeredCommands)->map(fn ($command) => [
+    Route::middleware('web')->group(function () {
+        Route::get('/', fn () => 'Hello world!');
+    });
+
+    Route::middleware('api')->group(function () {
+        Route::get('/commands', fn () => collect($this->registeredCommands)->map(fn ($command) => [
             'signature' => $command->getSignature(),
             'description' => $command->getDescription(),
         ]));
@@ -71,7 +75,7 @@ public function routes(): void
 
 ## Controllers
 
-Similar to Laravel, you may generate dedicated [Controllers](https://laravel.com/docs/10.x/controllers) to handle your route logic.
+Similar to Laravel, you may generate dedicated [Controllers](https://laravel.com/docs/11.x/controllers) to handle your route logic.
 
 This can be done using the `make:controller` console command:
 
@@ -120,14 +124,14 @@ class Bot extends Laracord
      */
     public function routes(): void
     {
-        Route::middleware('auth')->group(function () {
+        Route::middleware('api')->group(function () {
             Route::get('/example', 'App\Http\ExampleController@index');
         });
     }
 }
 ```
 
-Your Controller's `index` method should now be available at `/example`.
+Your Controller's `index` method should now be available at `/api/example`.
 
 ## Middleware
 
@@ -153,7 +157,11 @@ public function prependMiddleware(): array
 
 ## Security
 
-It is suggested that all routes utilize the `auth` middleware as shown in the default `routes()` example. This will require you pass an API token through the `token` query parameter or through the `Authorization` header as a `Bearer` token.
+It is suggested that all web routes utilize the `auth` middleware if made public. This will require you pass an API token through the `token` query parameter or through the `Authorization` header as a `Bearer` token.
+
+> #### NOTE
+>
+> The `auth` middleware is used by default when using the `api` group.
 
 Generating an API token for use with the `auth` middleware can be done through the `laracord` binary by passing the user ID of the Discord user who it should be assigned to:
 
