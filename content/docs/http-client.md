@@ -10,7 +10,7 @@ Laracord provides out of the box support for Laravel's expressive HTTP client ba
 
 > #### Note
 >
-> For advanced usage, we strongly suggest referring to the official [HTTP Client Laravel documentation](https://laravel.com/docs/10.x/http-client).
+> For advanced usage, we strongly suggest referring to the official [HTTP Client Laravel documentation](https://laravel.com/docs/11.x/http-client).
 
 ## Usage
 

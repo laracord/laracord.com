@@ -10,7 +10,7 @@ Laravel provides Laracord with a powerful filesystem abstraction out of the box 
 
 > #### Note
 >
-> For advanced usage, we strongly suggest checking out the official [Laravel Filesystem documentation](https://laravel.com/docs/10.x/filesystem).
+> For advanced usage, we strongly suggest checking out the official [Laravel Filesystem documentation](https://laravel.com/docs/11.x/filesystem).
 
 ## File Usage
 

@@ -12,7 +12,7 @@ By default, the project cache will be stored in the `cache/` directory inside of
 
 ## Usage
 
-Laravel has [in-depth documentation](https://laravel.com/docs/10.x/cache) concerning the usage of `Cache` within Laravel, but here are the basics:
+Laravel has [in-depth documentation](https://laravel.com/docs/11.x/cache) concerning the usage of `Cache` within Laravel, but here are the basics:
 
 ### Storing Cache
 
