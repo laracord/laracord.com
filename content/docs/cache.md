@@ -2,7 +2,7 @@
 slug: cache
 title: 'Cache'
 description: 'Efficient use of caching can help keep your Discord bot performant.'
-priority: 3
+priority: 4
 group: 'Digging Deeper'
 ---
 

@@ -2,7 +2,7 @@
 slug: http-client
 title: 'HTTP Client'
 description: "Make use of Laravel's expressive API around the Guzzle HTTP client in your Discord bot."
-priority: 5
+priority: 6
 group: 'Digging Deeper'
 ---
 

@@ -2,7 +2,7 @@
 slug: filesystem
 title: 'Filesystem'
 description: "Make use of Laravel's powerful filesystem abstraction powered by Flysystem."
-priority: 4
+priority: 5
 group: 'Digging Deeper'
 ---
 
