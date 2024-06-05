@@ -39,9 +39,9 @@ $interaction
 
 ## Message Interaction Persistence
 
-A common use-case for interactions is for a Button. Using a button, your bot can react to clicks with a response such as a message like the above.
+A common use-case for interactions is for a [Button](/docs/messages#content-buttons). Using a button, your bot can react to clicks with a response such as a message like the above.
 
-While this can generally be done by passing a callback to `->button()` inside of a [`Message`](/docs/messages), you will find that the button will no longer respond to interactions when the bot is restarted.
+While this can generally be done by passing a callback to `->button()` inside of a [Message](/docs/messages), you will find that the button will no longer respond to interactions when the bot is restarted.
 
 Laracord provides a solution to this by allowing you to define interaction routes inside of commands and assign buttons to them. Similar to the Laravel router, this also allows you to cleanly pass parameters to your interactions for handling dynamic behavior.
 

@@ -292,6 +292,10 @@ $message = $this
 
 In the example above, we respond to the interaction as well as set `ephemeral` to `true` to ensure the button can only be interacted with a single time.
 
+> #### Note
+>
+> It is recommended to handle button interactions in commands using Laracord's interaction routing. See the [Interaction Persistence](/docs/interactions#content-message-interaction-persistence) documentation to learn more.
+
 When working with buttons that resolve interactions, you also have the option of changing the [button style](https://discord.com/developers/docs/interactions/message-components#button-object-button-styles).
 
 The available options are `primary` (default), `secondary`, `success`, and `danger`:
