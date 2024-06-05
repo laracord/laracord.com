@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="dark scrollbar scrollbar-thumb-white/10 scrollbar-track-black/25 scrollbar-corner-black/25" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     {{ seo()->render() }}
 
