@@ -64,6 +64,8 @@ Message::make()->content('Hello world!');
 - [Buttons](#content-buttons)
   - [Link Button](#content-link-button)
   - [Interactions](#content-interactions)
+- [Select Menus](#content-select-menus)
+  - [Menu Types](#content-menu-types)
 
 ### Title
 
