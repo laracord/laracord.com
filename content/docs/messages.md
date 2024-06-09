@@ -31,7 +31,7 @@ This gives you a sensibly styled embed with the username and avatar of your bot.
 To send a plain message without an embed, you may pass your content to the `->body()` method:
 
 ```php
-$message = $this
+$this
     ->message()
     ->body('Hello world!');
 ```
@@ -43,7 +43,7 @@ When `$this->message()` is not available in your class, you can typically access
 ```php
 use Laracord\Discord\Message;
 
-$message = Message::make()->content('Hello world!');
+Message::make()->content('Hello world!');
 ```
 
 ## Available Methods
@@ -70,7 +70,7 @@ $message = Message::make()->content('Hello world!');
 Set the title of the embed:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->title('Example');
 ```
@@ -80,7 +80,7 @@ $message = $this
 Set the content of the embed. This can be used instead of passing content to `message` directly:
 
 ```php
-$message = $this
+$this
     ->message()
     ->content('Hello world!');
 ```
@@ -90,7 +90,7 @@ $message = $this
 By default, this is the username of your bot application.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->username('Laracord');
 ```
@@ -100,7 +100,7 @@ $message = $this
 By default, this is the avatar of your bot application.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->avatarUrl('...');
 ```
@@ -110,7 +110,7 @@ $message = $this
 This determines whether your message is a TTS message.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->tts(true);
 ```
@@ -122,7 +122,7 @@ By default, Laracord sends embeds using `->success()` which provides a green bor
 This can be overriden by passing a color in decimal directly to `->color()` or by using the other available color helper methods:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->color('3066993')
     ->success()
@@ -136,7 +136,7 @@ $message = $this
 The embed footer can contain text as well as an icon.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->footerText('Sent by Laracord')
     ->footerUrl('...');
@@ -147,7 +147,7 @@ $message = $this
 The thumbnail URL appears as a medium-sized image to the right of the embed.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->thumbnailUrl('...');
 ```
@@ -157,7 +157,7 @@ $message = $this
 The image URL appears as a large-sized image inside of the embed.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->imageUrl('...');
 ```
@@ -167,7 +167,7 @@ $message = $this
 The timestamp appears at the bottom of the embed and is shown to the user in their local time.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->timestamp(now());
 ```
@@ -177,7 +177,7 @@ $message = $this
 The embed author is shown at the top of the embed. By default, Laracord set's the `authorName` and `authorIcon` to the bot's username and avatar.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->authorName('Laracord')
     ->authorIcon('...')
@@ -189,7 +189,7 @@ $message = $this
 Fields consist of groups of data represented by a label and value. By default, they are inline with Discord showing up to 3 fields per line.
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->field('Field 1', 'Value 1')
     ->field('Field 2', 'Value 2');
@@ -198,7 +198,7 @@ $message = $this
 To pass a group of fields, you can use the `->fields()` method:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->fields([
         'Field 1' => 'Value 1',
@@ -209,7 +209,7 @@ $message = $this
 To prevent a field from being inline, you can pass `inline: false` like so:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->field('Field 1', 'Value 1')
     ->field('Field 2', 'Value 2', inline: false);
@@ -218,7 +218,7 @@ $message = $this
 You can also conditionally display a field:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->field('Field 1', 'Value 1')
     ->field('Field 2', 'Value 2', hidden: true);
@@ -229,11 +229,11 @@ $message = $this
 Attaching a file to your message can be done using raw content or by passing a path:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->file('Lorem ipsum...', 'lorem.txt');
 
-$message = $this
+$this
     ->message('Hello world!')
     ->filePath('path/to/file');
 ```
@@ -247,7 +247,7 @@ Buttons are shown at the bottom of your message and can consist of URL's or inte
 A button in it's simplest form would be a **link button** and consists of a simple label and URL value:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->button('Visit Laracord', 'https://laracord.com');
 ```
@@ -255,7 +255,7 @@ $message = $this
 When working with a link button, you also have the option of passing an emoji:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->button('Visit Laracord', 'https://laracord.com', emoji: '💻');
 ```
@@ -270,7 +270,7 @@ When using a custom emoji from a server your bot is in, you will have to pass th
 Once you obtain the emoji ID, you can then pass it to `emoji` as a string:
 
 ```php
-$message = $this
+$this
     ->message('Hello world!')
     ->button('Visit Laracord', 'https://laracord.com', emoji: ':laracord:1204740745286656050');
 ```
@@ -282,7 +282,7 @@ Interactions allow you to have the bot respond or perform an action when a butto
 ```php
 use Discord\Parts\Interactions\Interaction;
 
-$message = $this
+$this
     ->message('Say hello!')
     ->button('Hello', fn (Interaction $interaction) => $interaction->respondWithMessage(
         $this->message('Well hello to you!')->build(),
@@ -303,10 +303,80 @@ The available options are `primary` (default), `secondary`, `success`, and `dang
 ```php
 use Discord\Parts\Interactions\Interaction;
 
-$message = $this
+$this
     ->message('Say hello!')
-    ->button('Hello', fn (Interaction $interaction) => $interaction->respondWithMessage(
-        $this->message('Well hello to you!')->build(),
-        ephemeral: true
-    ), emoji: '👋', style: 'success');
+    ->button('Hello', fn (Interaction $interaction) => $this->message('Well hello to you!')->reply($interaction, true), emoji: '👋', style: 'success');
+```
+
+### Select Menus
+
+Select menus are typically shown above buttons and have similar functionality sending an interaction when items are selected. Similar to buttons, this interaction can be handled in a callback or using Laracord's [interaction routing](/docs/interactions#content-message-interaction-persistence).
+
+A simple select menu with a few items might look something like this:
+
+```php
+$this
+    ->message('What kind of fruit do you like?')
+    ->select(['Apples', 'Bananas', 'Pineapples']);
+```
+
+To add an interaction listener to it, we can either pass a callback as the second parameter the same as shown on buttons above or use Laracord's interaction router (which is recommended):
+
+```php
+$this
+    ->message('What kind of fruit do you like?')
+    ->select([
+        'Apples',
+        'Oranges',
+        'Bananas',
+    ], route: 'selectFruit', placeholder: 'Select a fruit...');
+```
+
+To get the select value(s) in our `selectFruit` route, we can simple fetch them off of `$interaction->data->values` as an array:
+
+```php
+public function interactions(): array
+{
+    return [
+        'selectFruit' => fn (Interaction $interaction) => $interaction->acknowledge() && dump($interaction->data->values),
+    ];
+}
+```
+
+Individual select menu options can be further customized by passing an array of options:
+
+```php
+$this
+    ->message('What kind of fruit do you like?')
+    ->select([
+        'apples' => [
+            'label' => 'Apples',
+            'description' => 'A tasty red fruit.',
+            'emoji' => '🍎',
+            'default' => true,
+        ],
+        'oranges' => [
+            'label' => 'Oranges',
+            'description' => 'A tasty orange fruit.',
+            'emoji' => '🍊',
+        ],
+        'bananas' => [
+            'label' => 'Bananas',
+            'description' => 'A tasty yellow fruit.',
+            'emoji' => '🍌',
+        ],
+    ], route: 'selectFruit', placeholder: 'Select a fruit...');
+```
+
+#### Menu Types
+
+Alongside creating a select menu using an array of options, may also pass one of the built-in types using the `type` property:
+
+```php
+$this
+    ->message('Pick a select, any select!')
+    ->select(type: 'channel', route: 'handleChannel')
+    ->select(type: 'mentionable', route: 'handleMentionable')
+    ->select(type: 'role', route: 'handleRole')
+    ->select(type: 'user', route: 'handleUser');
 ```

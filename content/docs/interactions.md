@@ -39,7 +39,7 @@ $interaction
 
 ## Message Interaction Persistence
 
-A common use-case for interactions is for a [Button](/docs/messages#content-buttons). Using a button, your bot can react to clicks with a response such as a message like the above.
+A common use-case for interactions is for a [Button](/docs/messages#content-buttons) or [Select menu](/docs/messages#select-menu). Using an interaction, your bot can to selections made with a response such as a message like the above.
 
 While this can generally be done by passing a callback to `->button()` inside of a [Message](/docs/messages), you will find that the button will no longer respond to interactions when the bot is restarted.
 
