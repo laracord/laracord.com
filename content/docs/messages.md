@@ -296,7 +296,7 @@ In the example above, we respond to the interaction as well as set `ephemeral` t
 
 > #### Note
 >
-> It is recommended to handle button interactions in commands using Laracord's interaction routing. See the [Interaction Persistence](/docs/interactions#content-message-interaction-persistence) documentation to learn more.
+> It is recommended to handle button interactions in commands using Laracord's interaction router. See the [interaction routing](/docs/interactions#content-interaction-routing) documentation to learn more.
 
 When working with buttons that resolve interactions, you also have the option of changing the [button style](https://discord.com/developers/docs/interactions/message-components#button-object-button-styles).
 
@@ -312,7 +312,7 @@ $this
 
 ### Select Menus
 
-Select menus are typically shown above buttons and have similar functionality sending an interaction when items are selected. Similar to buttons, this interaction can be handled in a callback or using Laracord's [interaction routing](/docs/interactions#content-message-interaction-persistence).
+Select menus are typically shown above buttons and have similar functionality sending an interaction when items are selected. Similar to buttons, this interaction can be handled in a callback or using Laracord's [interaction routing](/docs/interactions#content-interaction-routing).
 
 A simple select menu with a few items might look something like this:
 
