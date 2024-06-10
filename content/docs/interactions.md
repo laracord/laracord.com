@@ -37,15 +37,11 @@ $interaction
     ->then(fn ($interaction) => $this->handleLongTask($interaction));
 ```
 
-## Message Interaction Persistence
+## Interaction Routing
 
-A common use-case for interactions is for a [Button](/docs/messages#content-buttons) or [Select menu](/docs/messages#select-menu). Using an interaction, your bot can to selections made with a response such as a message like the above.
+When using buttons and select menus, Laracord provides a persistent, easy to use interaction router that gives a Laravel-like feel to handling responses.
 
-While this can generally be done by passing a callback to `->button()` inside of a [Message](/docs/messages), you will find that the button will no longer respond to interactions when the bot is restarted.
-
-Laracord provides a solution to this by allowing you to define interaction routes inside of commands and assign buttons to them. Similar to the Laravel router, this also allows you to cleanly pass parameters to your interactions for handling dynamic behavior.
-
-Using the example below, our command will respond with a generic message containing two buttons. We will then map out and handle the interactions inside of the `interactions()` method.
+In the example below, we will pass a route to a few buttons and a select menu and then handle the responses in the router.
 
 ```php
 use Discord\Parts\Interactions\Interaction;
@@ -56,12 +52,15 @@ use Discord\Parts\Interactions\Interaction;
 public function handle($message, $args)
 {
     return $this
-        ->message()
-        ->title('Hello')
-        ->content('Hello world!')
-        ->button('👋 Everyone', route: 'wave')
-        ->button('👋 Log1x', route: 'wave:log1x')
-        ->button('🖐️ Goodbye', route: 'goodbye')
+        ->message('Try out some interactions below.')
+        ->title('Interaction Example')
+        ->button('👋 Hello', route: 'wave:hello')
+        ->button('👋 Goodbye', route: 'wave:goodbye')
+        ->select([
+            'Apples',
+            'Bananas',
+            'Oranges',
+        ], route: 'fruit', placeholder: 'Select a fruit...');
         ->send($message);
 }
 
@@ -71,15 +70,18 @@ public function handle($message, $args)
 public function interactions(): array
 {
     return [
-        'wave:{id?}' => fn (Interaction $interaction, string $id = 'Everyone') => $this->message("Hello {$id}!")->reply($interaction, true),
-        'goodbye' => fn (Interaction $interaction) => $this->message("Bye for now, {$interaction->member->__toString()}!")->reply($interaction, true),
+        'wave:{type}' => fn (Interaction $interaction, string $type) =>
+            $this
+                ->message("You clicked {$type}.")
+                ->reply($interaction, ephemeral: true),
+
+        'fruit' => fn (Interaction $interaction) =>
+            $this
+                ->message("You selected {$interaction->data->values[0]}.")
+                ->reply($interaction, ephemeral: true),
     ];
 }
 ```
-
-In the above, we are able to make the `id` parameter optional in our `wave` route by suffixing a `?` in the in the key.
-
-With that, our interactions will now be uniquely handled and routed for our command's message automatically.
 
 ## Using Modals
 
