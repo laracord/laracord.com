@@ -85,36 +85,29 @@ With that, our interactions will now be uniquely handled and routed for our comm
 
 A neat feature in Discord is the ability to respond to an interaction using a Modal. This allows the user to input and submit text for it to then get parsed by the bot.
 
-While the usage of this feature comes from DiscordPHP and is not specific to Laracord, using this functionality can often be confusing and thus we will give an example here for good measure.
-
-Below we will show a modal for creating a ticket consisting of a `Title` input and `Description` paragraph.
+Below we will show a modal for creating a ticket consisting of a `Title` text input and `Description` paragraph.
 
 ```php
-use Discord\Builders\Components\ActionRow;
-use Discord\Builders\Components\TextInput;
-
-$interaction->showModal('Create Ticket', 'createTicket', [
-    ActionRow::new()->addComponent(
-        TextInput::new('Title', TextInput::STYLE_SHORT, 'title')
-            ->setPlaceholder('Enter a title.')
-            ->setRequired(true)
-    ),
-
-    ActionRow::new()->addComponent(
-        TextInput::new('Description', TextInput::STYLE_PARAGRAPH, 'description')
-            ->setPlaceholder('Please describe the issue in detail.')
-            ->setRequired(true)
-    ),
-], fn ($interaction, $components) => $this->createTicket($interaction, $components));
+$this
+    ->modal('Create Ticket')
+    ->text('Title', placeholder: 'Enter a title.', minLength: 2, maxLength: 32, required: true)
+    ->paragraph('Description', placeholder: 'Please describe the issue in detail.', minLength: 5, maxLength: 256, required: true)
+    ->submit(fn ($interaction, $components) => $this->createTicket($interaction, $components))
+    ->show($interaction);
 ```
+
+> #### Tip
+>
+> If you need to show a modal outside of a command, you can use the `HasModal` trait but it will still require an `$interaction`.
 
 In the example above, once the modal is submitted, we will be passing the `$interaction` instance and modal `$components` to our `createTicket()` method. From there, we will handle the data and then acknowledge the response.
 
 ```php
 use App\Models\Ticket;
+use Discord\Helpers\Collection;
 use Discord\Parts\Interactions\Interaction;
 
-protected function createTicket(Interaction $interaction, $components)
+protected function createTicket(Interaction $interaction, Collection $components)
 {
     $title = $components->get('custom_id', 'title')->value;
     $description = $components->get('custom_id', 'description')->value;
