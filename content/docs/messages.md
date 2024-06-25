@@ -51,6 +51,7 @@ Message::make()->content('Hello world!');
 - [Title](#content-title)
 - [URL](#content-url)
 - [Content](#content-content)
+- [Body](#content-body)
 - [Username](#content-username)
 - [Avatar](#content-avatar)
 - [TTS](#content-tts)
@@ -67,7 +68,7 @@ Message::make()->content('Hello world!');
   - [Interactions](#content-interactions)
 - [Select Menus](#content-select-menus)
   - [Menu Types](#content-menu-types)
-- [Body](#content-body)
+
 
 ### Title
 
@@ -98,6 +99,16 @@ Set the content of the embed. This can be used instead of passing content to `me
 $this
     ->message()
     ->content('Hello world!');
+```
+
+### Body
+
+Set the body of the embed, that send a message before the embed:
+
+```php
+$this
+    ->message('Hello world!')
+    ->body('@everyone');
 ```
 
 ### Username
@@ -394,14 +405,4 @@ $this
     ->select(type: 'mentionable', route: 'handleMentionable')
     ->select(type: 'role', route: 'handleRole')
     ->select(type: 'user', route: 'handleUser');
-```
-
-### Body
-
-Set the body of the embed, that send a message before the embed:
-
-```php
-$this
-    ->message('Hello world!')
-    ->body('@everyone');
 ```
