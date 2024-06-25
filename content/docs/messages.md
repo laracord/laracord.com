@@ -49,7 +49,7 @@ Message::make()->content('Hello world!');
 ## Available Methods
 
 - [Title](#content-title)
-- [Url](#content-url)
+- [URL](#content-url)
 - [Content](#content-content)
 - [Username](#content-username)
 - [Avatar](#content-avatar)
