@@ -49,6 +49,7 @@ Message::make()->content('Hello world!');
 ## Available Methods
 
 - [Title](#content-title)
+- [Url](#content-url)
 - [Content](#content-content)
 - [Username](#content-username)
 - [Avatar](#content-avatar)
@@ -66,6 +67,7 @@ Message::make()->content('Hello world!');
   - [Interactions](#content-interactions)
 - [Select Menus](#content-select-menus)
   - [Menu Types](#content-menu-types)
+- [Body](#content-body)
 
 ### Title
 
@@ -75,6 +77,17 @@ Set the title of the embed:
 $this
     ->message('Hello world!')
     ->title('Example');
+```
+
+### URL
+
+Set the url of the title:
+
+```php
+$this
+    ->message('Hello world!')
+    ->title('Example')
+    ->url('https://laracord.com');
 ```
 
 ### Content
@@ -381,4 +394,14 @@ $this
     ->select(type: 'mentionable', route: 'handleMentionable')
     ->select(type: 'role', route: 'handleRole')
     ->select(type: 'user', route: 'handleUser');
+```
+
+### Body
+
+Set the body of the embed, that send a message before the embed:
+
+```php
+$this
+    ->message('Hello world!')
+    ->body('@everyone');
 ```
