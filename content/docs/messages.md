@@ -49,7 +49,9 @@ Message::make()->content('Hello world!');
 ## Available Methods
 
 - [Title](#content-title)
+- [URL](#content-url)
 - [Content](#content-content)
+- [Body](#content-body)
 - [Username](#content-username)
 - [Avatar](#content-avatar)
 - [TTS](#content-tts)
@@ -67,6 +69,7 @@ Message::make()->content('Hello world!');
 - [Select Menus](#content-select-menus)
   - [Menu Types](#content-menu-types)
 
+
 ### Title
 
 Set the title of the embed:
@@ -77,6 +80,17 @@ $this
     ->title('Example');
 ```
 
+### URL
+
+Set the url of the title:
+
+```php
+$this
+    ->message('Hello world!')
+    ->title('Example')
+    ->url('https://laracord.com');
+```
+
 ### Content
 
 Set the content of the embed. This can be used instead of passing content to `message` directly:
@@ -85,6 +99,16 @@ Set the content of the embed. This can be used instead of passing content to `me
 $this
     ->message()
     ->content('Hello world!');
+```
+
+### Body
+
+Set the body of the embed, that send a message before the embed:
+
+```php
+$this
+    ->message('Hello world!')
+    ->body('@everyone');
 ```
 
 ### Username
