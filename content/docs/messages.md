@@ -66,8 +66,6 @@ $this
 - [URL](#content-url)
 - [Content](#content-content)
 - [Body](#content-body)
-- [Username](#content-username)
-- [Avatar](#content-avatar)
 - [TTS](#content-tts)
 - [Color](#content-color)
 - [Footer](#content-footer)
@@ -82,6 +80,8 @@ $this
   - [Interactions](#content-interactions)
 - [Select Menus](#content-select-menus)
   - [Menu Types](#content-menu-types)
+- [Webhook](#content-webhooks)
+  - [Username & Avatar](#content-username--avatar)
 
 ### Title
 
@@ -132,26 +132,6 @@ There may be a time where you do not want Laracord to send your message using an
 $this
     ->message()
     ->body('Hello world!');
-```
-
-### Username
-
-By default, this is the username of your bot application.
-
-```php
-$this
-    ->message('Hello world!')
-    ->username('Laracord');
-```
-
-### Avatar
-
-By default, this is the avatar of your bot application.
-
-```php
-$this
-    ->message('Hello world!')
-    ->avatarUrl('...');
 ```
 
 ### TTS
@@ -428,4 +408,47 @@ $this
     ->select(type: 'mentionable', route: 'handleMentionable')
     ->select(type: 'role', route: 'handleRole')
     ->select(type: 'user', route: 'handleUser');
+```
+
+### Webhook
+
+Sending a message as a webhook is usually never preferable, but in instances where you need to control the `username` and `avatar` of the bot, a webhook is the only option.
+
+Using this option comes with a couple noteable limitations:
+
+- Your bot must have the **Manage Webhooks** permission.
+- Buttons may only consist of a URL.
+- Select menus and interactions are otherwise not possible.
+
+By default, Laracord will attempt to create it's own webhook in the targeted channel using the bot's name. If successful, it will then re-use this webhook for all future messages in this channel.
+
+```php
+$this
+    ->message('Hello world')
+    ->webhook()
+    ->send($channel);
+```
+
+If you would like Laracord to use an existing webhook that you have already created in the targeted channel, you may pass the URL:
+
+```php
+$this
+    ->message('Hello world')
+    ->webhook('https://discord.com/api/webhooks/...')
+    ->send($channel);
+```
+
+It is important to understand that Laracord must still have the `$channel` part or ID passed as it will execute the webhook through the bot instance and is not making a standalone HTTP request.
+
+#### Username & Avatar
+
+Using a webhook gives you the ability to change the username and avatar shown when sending a message. This should typically be the only reason you use a `webhook`.
+
+```php
+$this
+    ->message('Hello world!')
+    ->username('Laracord')
+    ->avatar('...')
+    ->webhook()
+    ->send($channel);
 ```
