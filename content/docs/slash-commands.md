@@ -199,9 +199,6 @@ public function autocomplete(): array
 By default, Laracord will automatically handle creating slug values out of passed options. To control the label and value yourself, you may pass them using key value pairs:
 
 ```php
-/**
- * Set the autocomplete choices.
- */
 public function autocomplete(): array
 {
     return [
@@ -218,9 +215,6 @@ For dynamic autocomplete choices, you may pass a callback instead consisting of 
 ```php
 use Discord\Parts\Interactions\Interaction;
 
-/**
- * Set the autocomplete choices.
- */
 public function autocomplete(): array
 {
     return [
