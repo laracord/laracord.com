@@ -28,22 +28,36 @@ This gives you a sensibly styled embed with the username and avatar of your bot.
 
 ![Simple Message](/images/simple-message.png)
 
-To send a plain message without an embed, you may pass your content to the `->body()` method:
+### Replying to Messages
+
+When sending messages, an easy way to improve user experience is to have the bot reply to a user when responding to their commands/input instead of just sending the message openly into the channel.
+
+To do this, you must have some sort of context to respond to whether it be an existing message or interaction.
 
 ```php
 $this
-    ->message()
-    ->body('Hello world!');
+    ->message('Hello to you!')
+    ->reply($message|$interaction);
 ```
 
-## Direct Usage
+### Editing Messages
 
-When `$this->message()` is not available in your class, you can typically access and make `Message` directly:
+Similar to replying, Laracord also lets you easily edit existing messages and interactions.
 
 ```php
-use Laracord\Discord\Message;
+$this
+    ->message('Nevermind...')
+    ->edit($message|$interaction);
+```
 
-Message::make()->content('Hello world!');
+Under the hood, this will update an existing interaction message using `$interaction->updateMessage()` or an existing message using `$message->edit()`.
+
+Another common scenario you might run into is the need to edit an existing message if it is owned by the bot otherwise replying instead.
+
+```php
+$this
+    ->message('Hello world')
+    ->editOrReply($message|$interaction);
 ```
 
 ## Available Methods
@@ -69,7 +83,6 @@ Message::make()->content('Hello world!');
 - [Select Menus](#content-select-menus)
   - [Menu Types](#content-menu-types)
 
-
 ### Title
 
 Set the title of the embed:
@@ -82,7 +95,7 @@ $this
 
 ### URL
 
-Set the url of the title:
+Set the URL of the title:
 
 ```php
 $this
@@ -103,12 +116,22 @@ $this
 
 ### Body
 
-Set the body of the embed, that send a message before the embed:
+The message body in Laracord refers to a message's generic content outside of the stylized embed that Laracord uses by default. This is otherwise the typical format that messages are sent and received on Discord.
+
+One limitation of stylizing message output as an embed is the inabiliity to send a notification to a user/role when mentioning them. One way to remedy this is to pass the mention into `->body()` making it appear above the embed in a mostly non-invasive way:
 
 ```php
 $this
     ->message('Hello world!')
     ->body('@everyone');
+```
+
+There may be a time where you do not want Laracord to send your message using an embed. In this case, simply pass your message content using `->body()` without specifying a message directly to `->message()` or `->content()`:
+
+```php
+$this
+    ->message()
+    ->body('Hello world!');
 ```
 
 ### Username

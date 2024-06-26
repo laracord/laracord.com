@@ -84,6 +84,14 @@ For convenience, Laracord comes with a console command to set a specified user a
 $ php laracord bot:admin <id>
 ```
 
+### Tinker (REPL)
+
+Laracord comes with full support for [Tinker](https://github.com/laravel/tinker) out of the box.
+
+```sh
+$ php laracord tinker
+```
+
 ### Additional Commands
 
 To view all built-in console commands, you can run the `list` command:

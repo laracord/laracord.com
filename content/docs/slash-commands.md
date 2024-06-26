@@ -168,3 +168,65 @@ To retrieve all flattened option values, you can simply omit passing a key:
 ```php
 $values = $this->value();
 ```
+
+## Command Autocomplete
+
+When asking for input from commands like the channel `id` above for `/ticket set channel <id>`, Laracord allows you to easily provide autocomplete results to assist the user.
+
+> #### Note
+>
+> Autocomplete choices may only contain up to 25 items at a time and will automatically be limited.
+
+How you can approach this is rather flexible and any command/subcommand can be targeted using dot-notation.
+
+In it's simplest form, you may pass a simple array of options to autocomplete to:
+
+```php
+/**
+ * Set the autocomplete choices.
+ */
+public function autocomplete(): array
+{
+    return [
+        'set.channel.id' => [
+            '00000',
+            '11111',
+        ],
+    ];
+}
+```
+
+By default, Laracord will automatically handle creating slug values out of passed options. To control the label and value yourself, you may pass them using key value pairs:
+
+```php
+/**
+ * Set the autocomplete choices.
+ */
+public function autocomplete(): array
+{
+    return [
+        'set.channel.id' => [
+            'General Chat' => '00000',
+            'Staff Chat' => '11111'
+        ],
+    ];
+}
+```
+
+For dynamic autocomplete choices, you may pass a callback instead consisting of the current state of the command interaction and the value they currently have entered:
+
+```php
+use Discord\Parts\Interactions\Interaction;
+
+/**
+ * Set the autocomplete choices.
+ */
+public function autocomplete(): array
+{
+    return [
+        'set.channel.id' => fn (Interaction $interaction, mixed $value) => $value
+            ? TicketChannel::where('channel_id', 'like', "%{$value}%")->take(25)->pluck('channel_id')
+            : TicketChannel::take(25)->pluck('channel_id'),
+    ];
+}
+```
