@@ -2,7 +2,7 @@
 slug: events
 title: 'Events'
 description: 'Quickly hook into Discord events with your Laracord bot.'
-priority: 3
+priority: 4
 group: Usage
 ---
 
