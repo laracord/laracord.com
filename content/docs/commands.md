@@ -15,7 +15,7 @@ Out of the box, Laracord includes a simple `!ping` command to test your bot with
 Creating your own command is simple and can be generated using the `laracord` binary:
 
 ```sh
-$ php laracord make:command Example
+$ php laracord make:command ExampleCommand
 ```
 
 A generated command in it's simplest form will look something like:

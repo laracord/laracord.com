@@ -21,10 +21,10 @@ Laracord has full support for slash commands out of the box. When a command is c
 Similar to creating a normal command, creating a slash command can be done using the `laracord` binary:
 
 ```sh
-$ php laracord make:slash-command Example
+$ php laracord make:slash-command ExampleCommand
 ```
 
-A generated slash command in it's simplest form will look something like:
+A slash command in it's simplest form will look something like:
 
 ```php
 <?php
@@ -68,6 +68,21 @@ class Example extends SlashCommand
 }
 ```
 
+### Command Permissions
+
+Discord allows you to limit application commands to users who have specific [permission flags](https://discord.com/developers/docs/topics/permissions#permissions-bitwise-permission-flags). This can be done by passing the required permissions to the `$permissions` property as an array:
+
+```php
+/**
+ * The permissions required to use the command.
+ *
+ * @var array
+ */
+protected $permissions = ['manage_guild'];
+```
+
+### Guild Slash Commands
+
 To only register a slash command to a specific guild/server, you may set the `$guild` property:
 
 ```php
@@ -78,6 +93,8 @@ To only register a slash command to a specific guild/server, you may set the `$g
  */
 protected $guild = 'your-guild-id';
 ```
+
+## Command Options
 
 Adding options to your slash command can be done by passing an array of options to the `$options` property **or** overriding the `options()` method.
 
@@ -120,7 +137,7 @@ public function options()
 }
 ```
 
-## Retrieving Option Values
+### Retrieving Option Values
 
 Laracord makes it easy to retrieve any passed command option values in your handler using the `value()` method.
 
