@@ -168,7 +168,7 @@ The embed footer can contain text as well as an icon.
 $this
     ->message('Hello world!')
     ->footerText('Sent by Laracord')
-    ->footerUrl('...');
+    ->footerIcon('...');
 ```
 
 ### Thumbnail
