@@ -115,8 +115,8 @@ return [
     'commonmark_extensions' => [
         League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension::class,
         League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension::class,
-        //League\CommonMark\Extension\Autolink\AutolinkExtension::class,
-        //League\CommonMark\Extension\Strikethrough\StrikethroughExtension::class,
+        // League\CommonMark\Extension\Autolink\AutolinkExtension::class,
+        // League\CommonMark\Extension\Strikethrough\StrikethroughExtension::class,
     ],
 
     /**
