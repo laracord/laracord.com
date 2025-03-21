@@ -14,6 +14,10 @@ This includes automatically syncing changes you make to your command as well as 
 >
 > **Do not** attempt to use Laracord on the same bot token as an existing bot with application commands. Laracord will **sync/cache slash commands** on boot and will **remove** any commands that are not registered with Laracord.
 
+## Developing Slash Commands
+
+Discord uses client-side caching which can make development difficult. When developing slash commands, you can set the `$guild` property on your command to a specific Discord server ID to ensure your changes are immediately visible during development. You can also manually refresh the cache by pressing **CMD+R** (macOS) or **CTRL+R** (Windows).
+
 ## Creating Slash Commands
 
 Laracord has full support for slash commands out of the box. When a command is created, updated, or removed – the Discord application command repository is automatically updated.
@@ -239,5 +243,79 @@ public function autocomplete(): array
             ? TicketChannel::where('channel_id', 'like', "%{$value}%")->take(25)->pluck('channel_id')
             : TicketChannel::take(25)->pluck('channel_id'),
     ];
+}
+```
+
+### Slash Commands with Multiple Inputs
+
+You can create more complex slash commands by combining sub-commands with multiple input fields. This is useful when your command needs to collect several pieces of information from the user in one interaction.
+
+Here's an example of a generic "create" command with multiple inputs:
+
+```php
+use Discord\Parts\Interactions\Command\Option;
+
+/**
+ * The slash command options.
+ *
+ * @var array
+ */
+protected $options = [
+    [
+        'name' => 'create',
+        'description' => 'Create a new item',
+        'type' => Option::SUB_COMMAND,
+        'options' => [
+            [
+                'name' => 'name',
+                'description' => 'The name of the item',
+                'type' => Option::STRING,
+                'required' => true,
+            ],
+            [
+                'name' => 'description',
+                'description' => 'A description of the item',
+                'type' => Option::STRING,
+                'required' => true,
+            ],
+            [
+                'name' => 'category',
+                'description' => 'The category for this item',
+                'type' => Option::STRING,
+                'required' => false,
+            ],
+            [
+                'name' => 'priority',
+                'description' => 'Set the item priority (1-5)',
+                'type' => Option::INTEGER,
+                'required' => false,
+                'min_value' => 1,
+                'max_value' => 5,
+            ],
+        ],
+    ],
+];
+```
+
+In your command handler, you can access these values using the dot notation:
+
+```php
+public function handle($interaction)
+{
+    $name = $this->value('create.name');
+    $description = $this->value('create.description');
+    $category = $this->value('create.category', 'General');
+    $priority = $this->value('create.priority', 3);
+    
+    // Process the command with these inputs
+    $item = $this->itemService->createNewItem($name, $description, $category, $priority);
+    
+    $interaction->respondWithMessage(
+        $this
+            ->message()
+            ->title('Item Created')
+            ->content("Successfully created **{$name}** with priority **{$priority}**!")
+            ->build()
+    );
 }
 ```
