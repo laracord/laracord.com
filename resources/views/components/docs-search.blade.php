@@ -6,7 +6,7 @@
 >
   <div class="relative flex items-center md:max-w-64">
     <input
-      class="w-full py-2 pl-4 text-sm border-black rounded-lg pr-7 text-white/75 placeholder:text-white/50 bg-black/25 focus:ring-0 focus:outline-none focus:border-primary-500"
+      class="w-full py-2 pl-4 text-sm border-black rounded-lg pr-7 text-white/75 placeholder:text-white/50 bg-black/25 focus:ring-0 focus:outline-hidden focus:border-primary-500"
       placeholder="{{ $placeholder }}"
       x-on:input.debounce.300="get()"
       x-model="query"
@@ -20,7 +20,7 @@
 
   <template x-if="isFocused">
     <div class="absolute inset-x-0 z-10 w-full mt-3 text-base text-white lg:pr-6 top-full">
-      <ul class="w-full px-5 py-4 overflow-hidden border border-b-4 border-white rounded shadow border-opacity-[3%] bg-[#141414] border-b-primary-500/100">
+      <ul class="w-full px-5 py-4 overflow-hidden border border-b-4 border-white rounded-sm shadow-sm border-opacity-[3%] bg-[#141414] border-b-primary-500">
         <div class="text-xs tracking-wide uppercase text-white/50">
           Showing <span x-text="count"></span> of <span x-text="total"></span> results
         </div>
