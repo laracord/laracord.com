@@ -13,8 +13,6 @@
             <li>
               <a
                 href="{{ $link['href'] }}"
-                target="_blank"
-                rel="noopener noreferrer"
                 class="text-white/50 hover:text-primary-500 transition-colors"
               >
                 {{ $link['label'] }}
@@ -30,7 +28,7 @@
           @foreach ([
             ['label' => 'GitHub', 'href' => 'https://github.com/laracord'],
             ['label' => 'Discord', 'href' => 'https://laracord.com/discord'],
-            ['label' => 'Twitter', 'href' => 'https://twitter.com/laracord'],
+            ['label' => 'Twitter', 'href' => 'https://twitter.com/laracordphp'],
           ] as $link)
             <li>
               <a

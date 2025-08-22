@@ -13,7 +13,9 @@
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <x-logo size="xl" />
+            <a href="{{ route('home') }}" wire:navigate>
+              <x-logo size="xl" />
+            </a>
           </div>
         </div>
 
@@ -538,6 +540,7 @@
       </div>
     </section>
 
+    {{--
     <section class="py-24 px-4 relative">
       <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/20 to-[#0a0a0a]"></div>
       <div class="max-w-6xl mx-auto relative z-10">
@@ -590,7 +593,7 @@
           @endforeach
         </div>
       </div>
-    </section>
+    </section> --}}
 
     <section class="py-24 px-4 relative">
       <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a]/30 to-[#0a0a0a]"></div>

@@ -211,10 +211,6 @@
             {{ $page->title }}
           </h1>
 
-          @if ($page->description)
-            <p class="text-lg text-white/60 mb-8">{{ $page->description }}</p>
-          @endif
-
           <div class="prose prose-lg max-w-none
             prose-headings:text-white prose-headings:font-bold
             prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
@@ -253,5 +249,29 @@
 
   @pushOnce('scripts')
     @markdomStyles
+    <script>
+      document.addEventListener('alpine:init', () => {
+        Alpine.store('docs', {
+          sidebarOpen: false,
+          searchOpen: false,
+
+          toggleSidebar() {
+            this.sidebarOpen = !this.sidebarOpen;
+          },
+
+          closeSidebar() {
+            this.sidebarOpen = false;
+          },
+
+          toggleSearch() {
+            this.searchOpen = !this.searchOpen;
+          },
+
+          closeSearch() {
+            this.searchOpen = false;
+          }
+        });
+      });
+    </script>
   @endPushOnce
 </div>
