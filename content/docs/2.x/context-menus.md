@@ -1,5 +1,6 @@
 ---
 slug: context-menus
+version: 2.x
 title: 'Context Menus'
 description: 'Allow interacting with your Discord bot using context menus.'
 priority: 3

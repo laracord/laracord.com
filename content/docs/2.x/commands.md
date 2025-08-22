@@ -1,5 +1,6 @@
 ---
 slug: commands
+version: 2.x
 title: 'Commands'
 description: 'Learn how to create Discord bot commands with Laracord.'
 priority: 1

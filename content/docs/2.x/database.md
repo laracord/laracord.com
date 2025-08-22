@@ -1,5 +1,6 @@
 ---
 slug: database
+version: 2.x
 title: 'Database'
 description: 'With out of the box Eloquent support, using a database alongside your Discord bot has never been easier.'
 priority: 3

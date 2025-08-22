@@ -1,5 +1,6 @@
 ---
 slug: events
+version: 2.x
 title: 'Events'
 description: 'Quickly hook into Discord events with your Laracord bot.'
 priority: 4
