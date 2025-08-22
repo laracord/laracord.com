@@ -686,8 +686,39 @@
             ['icon' => 'settings', 'title' => 'Configure Your Bot', 'description' => 'Add your Discord bot token to the .env file.', 'command' => 'DISCORD_TOKEN=<token>'],
             ['icon' => 'rocket', 'title' => 'Launch Your Bot', 'description' => 'Launch your bot and begin interacting with Discord in real time.', 'command' => 'php laracord']
           ] as $i => $step)
-            <div class="relative">
-              <div class="bg-[#1a1a1a]/50 flex flex-col backdrop-blur-sm border-[#333333] rounded-xl p-8 h-full hover:border-primary-500/50 hover:shadow-[0_0_30px_rgba(229,57,43,0.15)] hover:scale-[1.02] transition-all duration-300 group">
+            <div class="relative group/step" x-data="{ copied: false }">
+              <div
+                @if ($loop->first)
+                  x-clipboard.raw="composer create-project laracord/laracord"
+                  x-on:click="
+                    $nextTick(() => {
+                      copied = true;
+                      setTimeout(() => {
+                        copied = false;
+                      }, 1500);
+                    });
+                  "
+                  class="bg-[#1a1a1a]/50 flex flex-col backdrop-blur-sm border-[#333333] rounded-xl p-8 h-full hover:border-primary-500/50 hover:shadow-[0_0_30px_rgba(229,57,43,0.15)] hover:scale-[1.02] transition-all duration-300 group cursor-pointer"
+                @else
+                  class="bg-[#1a1a1a]/50 flex flex-col backdrop-blur-sm border-[#333333] rounded-xl p-8 h-full hover:border-primary-500/50 hover:shadow-[0_0_30px_rgba(229,57,43,0.15)] hover:scale-[1.02] transition-all duration-300 group"
+                @endif
+              >
+                @if ($loop->first)
+                  <div class="absolute top-4 right-4 opacity-0 group-hover/step:opacity-100 transition-opacity duration-200">
+                    <div class="p-1 rounded">
+                      <x-lucide-clipboard
+                        x-show="!copied"
+                        class="w-4 h-4 text-white/50"
+                      />
+
+                      <x-lucide-check
+                        x-show="copied"
+                        class="w-4 h-4 text-green-500"
+                      />
+                    </div>
+                  </div>
+                @endif
+
                 <div class="flex items-center mb-6">
                   <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary-500 to-primary-500/70 flex items-center justify-center shadow-lg shadow-primary-500/25 group-hover:shadow-primary-500/40 group-hover:scale-110 transition-all duration-300">
                     <x-icon name="lucide-{{ $step['icon'] }}" class="w-6 h-6 text-white" />

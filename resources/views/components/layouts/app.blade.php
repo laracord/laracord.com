@@ -17,7 +17,7 @@
 
     <div
       id="notifications"
-      class="fixed right-0 space-y-2 bottom-4 md:bottom-auto md:w-72 md:top-4"
+      class="fixed right-4 bottom-4 space-y-2 w-72"
     ></div>
 
     <template id="notification-success">
