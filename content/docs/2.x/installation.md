@@ -1,5 +1,6 @@
 ---
 slug: installation
+version: 2.x
 title: 'Installation'
 description: 'Learn how to install Laracord and get a Discord bot up and running in just a few steps.'
 priority: 1

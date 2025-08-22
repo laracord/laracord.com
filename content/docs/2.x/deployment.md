@@ -1,5 +1,6 @@
 ---
 slug: deployment
+version: 2.x
 title: 'Deployment'
 description: 'Bundle Laracord into a PHAR to run your Discord bot in production.'
 priority: 4

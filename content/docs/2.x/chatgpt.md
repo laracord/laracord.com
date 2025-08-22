@@ -1,5 +1,6 @@
 ---
 slug: chatgpt
+version: 2.x
 title: 'Chat Bot'
 description: 'Easily create a Discord bot that interacts with ChatGPT using Laracord.'
 priority: 2

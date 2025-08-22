@@ -22,10 +22,16 @@ class DocsSearch extends Component
     public int $minLength = 3;
 
     /**
+     * The version to search within.
+     */
+    public string $version = '2.x';
+
+    /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(string $version = '2.x')
     {
+        $this->version = $version;
         $this->endpoint = route('api.docs.search');
     }
 
