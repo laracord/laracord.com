@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-[#0a0a0a]">
+<div class="min-h-screen bg-[#0a0a0a]" x-data="{ sidebarOpen: false, searchOpen: false }">
   <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#333333]/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -14,14 +14,14 @@
 
         <div class="flex items-center gap-4">
           <button
-            @click="$store.docs.toggleSidebar()"
+            @click="sidebarOpen = !sidebarOpen"
             class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-[#1a1a1a] transition-colors"
           >
             <x-lucide-menu class="w-5 h-5 text-white/80" />
           </button>
 
           <button
-            @click="$store.docs.toggleSearch()"
+            @click="searchOpen = !searchOpen"
             class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-[#1a1a1a] transition-colors"
           >
             <x-lucide-search class="w-5 h-5 text-white/80" />
@@ -78,7 +78,7 @@
   </nav>
 
   <div
-    x-show="$store.docs.sidebarOpen"
+    x-show="sidebarOpen"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0"
     x-transition:enter-end="opacity-100"
@@ -86,13 +86,13 @@
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
     class="fixed inset-0 z-40 lg:hidden"
-    @click="$store.docs.closeSidebar()"
+    @click="sidebarOpen = false"
   >
     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
   </div>
 
   <aside
-    x-show="$store.docs.sidebarOpen"
+    x-show="sidebarOpen"
     x-transition:enter="transition ease-out duration-300 transform"
     x-transition:enter-start="-translate-x-full"
     x-transition:enter-end="translate-x-0"
@@ -122,7 +122,7 @@
                         ])
                         wire:navigate
                         href="{{ route('docs.show', ['version' => $version, 'page' => $item['slug']]) }}"
-                        @click="$store.docs.closeSidebar()"
+                        @click="sidebarOpen = false"
                       >
                         {{ $item['title'] }}
                       </a>
@@ -138,7 +138,7 @@
   </aside>
 
   <div
-    x-show="$store.docs.searchOpen"
+    x-show="searchOpen"
     x-transition:enter="transition ease-out duration-300"
     x-transition:enter-start="opacity-0"
     x-transition:enter-end="opacity-100"
@@ -146,13 +146,13 @@
     x-transition:leave-start="opacity-100"
     x-transition:leave-end="opacity-0"
     class="fixed inset-0 z-40 md:hidden"
-    @click="$store.docs.closeSearch()"
+    @click="searchOpen = false"
   >
     <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"></div>
   </div>
 
   <div
-    x-show="$store.docs.searchOpen"
+    x-show="searchOpen"
     x-transition:enter="transition ease-out duration-200"
     x-transition:enter-start="opacity-0 scale-95"
     x-transition:enter-end="opacity-100 scale-100"
@@ -207,7 +207,7 @@
 
       <div class="lg:col-span-3">
         <div class="max-w-3xl">
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
+          <h1 class="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
             {{ $page->title }}
           </h1>
 
@@ -253,29 +253,5 @@
 
   @pushOnce('scripts')
     @markdomStyles
-    <script>
-      document.addEventListener('alpine:init', () => {
-        Alpine.store('docs', {
-          sidebarOpen: false,
-          searchOpen: false,
-
-          toggleSidebar() {
-            this.sidebarOpen = !this.sidebarOpen;
-          },
-
-          closeSidebar() {
-            this.sidebarOpen = false;
-          },
-
-          toggleSearch() {
-            this.searchOpen = !this.searchOpen;
-          },
-
-          closeSearch() {
-            this.searchOpen = false;
-          }
-        });
-      });
-    </script>
   @endPushOnce
 </div>
