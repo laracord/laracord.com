@@ -25,6 +25,7 @@ class Docs extends Model
     public static function schema(Blueprint $table)
     {
         $table->string('slug');
+        $table->string('version')->default('2.x');
         $table->string('title');
         $table->string('description')->nullable();
         $table->string('group')->nullable();
@@ -34,12 +35,13 @@ class Docs extends Model
 
     /**
      * Retrieve the documentation URL.
-     *
-     * @return string
      */
-    public function getUrlAttribute()
+    public function getUrlAttribute(): string
     {
-        return route('docs.show', $this->slug);
+        return route('docs.show', [
+            'version' => $this->version,
+            'page' => $this->slug,
+        ]);
     }
 
     /**
