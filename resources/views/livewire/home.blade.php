@@ -191,7 +191,7 @@
       <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/40"></div>
 
       <div class="relative z-10 max-w-6xl mx-auto text-center">
-        <div class="mb-8 hover:translate-y-[-2px] transition-transform duration-300">
+        <div class="mb-8">
           <h1 class="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">
             Lara<span class="bg-gradient-to-r from-primary-500 to-primary-400 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(229,57,43,0.5)] animate-pulse-glow">cord</span>
           </h1>
