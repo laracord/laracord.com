@@ -277,9 +277,9 @@
                             'text-gray-600 dark:text-white/70': activeHeading !== heading.id,
                             'pl-4': heading.level > 2
                           }"
-                          class="flex items-center gap-2 py-1 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                          class="flex items-center gap-2 py-1 hover:text-primary-500 dark:hover:text-primary-500 transition-colors"
                         >
-                          <span class="text-orange-500 font-mono text-xs">#</span>
+                          <span class="text-primary-500 text-xs">#</span>
                           <span x-text="heading.text"></span>
                         </a>
                       </li>

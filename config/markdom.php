@@ -101,7 +101,7 @@ return [
         */
 
         'heading_permalink' => [
-            'html_class' => 'opacity-0 hover:opacity-100 text-primary-500! transition! no-underline! mr-2! md:-ml-6.5!',
+            'html_class' => 'md:opacity-0 hover:opacity-100 text-primary-500! transition! no-underline! mr-2! md:-ml-6.5!',
             'insert' => 'before',
             'title' => 'Permalink',
             'symbol' => '#',
