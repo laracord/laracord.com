@@ -431,13 +431,16 @@
             <div class="flex flex-col gap-6 border py-6 shadow-sm bg-[#1a1a1a]/70 backdrop-blur-sm border-[#333333] hover:border-primary-500/60 hover:shadow-[0_0_30px_rgba(229,57,43,0.2)] hover:bg-[#1a1a1a]/90 transition-all duration-500 group rounded-xl overflow-hidden transform hover:scale-[1.02]">
               <div class="p-6">
                 <div class="mb-4">
-                  @php
-                    $iconClass = "lucide-{$feature['icon']}";
-                  @endphp
-                  <x-dynamic-component :component="$iconClass" class="w-10 h-10 text-primary-500 mb-3 group-hover:scale-125 group-hover:text-primary-500/80 group-hover:drop-shadow-[0_0_8px_rgba(229,57,43,0.6)] transition-all duration-500" />
+                  <x-icon name="lucide-{{ $feature['icon'] }}" class="w-10 h-10 text-primary-500 mb-3 group-hover:scale-125 group-hover:text-primary-500/80 group-hover:drop-shadow-[0_0_8px_rgba(229,57,43,0.6)] transition-all duration-500" />
                 </div>
-                <h3 class="text-lg font-bold text-white mb-3 group-hover:text-primary-500 transition-colors duration-300">{{ $feature['title'] }}</h3>
-                <p class="text-sm text-white/80 leading-relaxed font-medium">{{ $feature['description'] }}</p>
+
+                <h3 class="text-lg font-bold text-white mb-3 group-hover:text-primary-500 transition-colors duration-300">
+                  {{ $feature['title'] }}
+                </h3>
+
+                <p class="text-sm text-white/80 leading-relaxed font-medium">
+                  {{ $feature['description'] }}
+                </p>
               </div>
             </div>
           @endforeach
