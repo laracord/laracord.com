@@ -14,7 +14,11 @@
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <a href="{{ route('home') }}" wire:navigate>
+            <a
+              href="{{ route('home') }}"
+              wire:navigate
+              aria-label="Laracord"
+            >
               <x-logo size="xl" />
             </a>
           </div>
@@ -66,6 +70,7 @@
         <div class="lg:hidden">
           <button
             @click="mobileMenuOpen = true"
+            aria-label="Open mobile menu"
             class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent dark:hover:bg-accent/50 h-8 rounded-md gap-1.5 px-3 text-white/80 hover:text-primary-500"
           >
             <x-lucide-menu class="w-5 h-5" />
@@ -103,6 +108,7 @@
         <x-logo size="lg" />
         <button
           @click="mobileMenuOpen = false"
+          aria-label="Close mobile menu"
           class="inline-flex items-center justify-center w-10 h-10 rounded-lg hover:bg-[#1a1a1a] transition-colors"
         >
           <x-lucide-x class="w-5 h-5 text-white/80" />

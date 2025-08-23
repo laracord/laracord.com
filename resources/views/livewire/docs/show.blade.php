@@ -17,7 +17,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex-shrink-0">
-          <a href="{{ route('home') }}" wire:navigate>
+          <a
+            href="{{ route('home') }}"
+            wire:navigate
+            aria-label="Laracord"
+          >
             <x-logo size="xl" class="text-black/70 dark:text-white" />
           </a>
         </div>
@@ -29,6 +33,7 @@
         <div class="flex items-center gap-4">
           <button
             @click="sidebarOpen = !sidebarOpen"
+            aria-label="Toggle sidebar menu"
             class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-[#1a1a1a] transition-colors"
           >
             <x-lucide-menu class="w-5 h-5 text-gray-600 dark:text-white/80" />
@@ -36,6 +41,7 @@
 
           <button
             @click="searchOpen = !searchOpen"
+            aria-label="Toggle search"
             class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-[#1a1a1a] transition-colors"
           >
             <x-lucide-search class="w-5 h-5 text-gray-600 dark:text-white/80" />
