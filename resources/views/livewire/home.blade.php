@@ -495,31 +495,31 @@
                 'title' => 'Commands',
                 'description' => 'Traditional prefix commands with interactive components',
                 'filename' => 'PingCommand.php',
-                'code' => file_get_contents(resource_path('views/examples/command.php')),
+                'file' => 'command.php',
               ],
               'slash-commands' => [
                 'title' => 'Slash Commands',
                 'description' => 'Auto-syncing slash commands with full Discord API support',
                 'filename' => 'HelloSlashCommand.php',
-                'code' => file_get_contents(resource_path('views/examples/slash-command.php')),
+                'file' => 'slash-command.php',
               ],
               'listeners' => [
                 'title' => 'Event Listeners',
                 'description' => 'React to Discord events with elegant Laravel event listeners',
                 'filename' => 'MessageListener.php',
-                'code' => file_get_contents(resource_path('views/examples/listener.php')),
+                'file' => 'listener.php',
               ],
               'tasks' => [
                 'title' => 'Tasks',
                 'description' => 'Run timed tasks in the ReactPHP event loop',
                 'filename' => 'ReminderTask.php',
-                'code' => file_get_contents(resource_path('views/examples/task.php')),
+                'file' => 'task.php',
               ],
               'middleware' => [
                 'title' => 'Middleware',
                 'description' => 'Process commands and interactions with custom middleware',
                 'filename' => 'ExampleMiddleware.php',
-                'code' => file_get_contents(resource_path('views/examples/middleware.php')),
+                'file' => 'middleware.php',
               ],
             ] as $key => $item)
               <div x-show="activeTab === '{{ $key }}'" class="flex flex-col gap-6 rounded-xl border bg-[#1a1a1a]/90 backdrop-blur-sm border-[#333333]/60 shadow-2xl shadow-[#0a0a0a]/50 overflow-hidden ring-1 ring-white/5 hover:shadow-[0_0_40px_rgba(229,57,43,0.1)] transition-all duration-300">
@@ -547,7 +547,9 @@
 
                     <div class="relative bg-gradient-to-br from-[#0a0a0a]/95 to-[#1a1a1a]/60 backdrop-blur-sm">
                       <div class="p-6 text-sm overflow-x-auto font-mono scrollbar-thin scrollbar-track-[#1a1a1a] scrollbar-thumb-primary-500/60 hover:scrollbar-thumb-primary-500/80 [&_pre]:m-0 [&_pre]:bg-transparent! [&_code]:text-sm [&_code]:leading-relaxed">
-                        {!! (new Phiki())->codeToHtml($item['code'], Grammar::Php, Theme::GithubDark) !!}
+                        {!! Cache::rememberForever("example_html_{$key}", fn () => (new Phiki())->codeToHtml(
+                          file_get_contents(resource_path("views/examples/{$item['file']}")), Grammar::Php, Theme::GithubDark
+                        )) !!}
                       </div>
 
                       <div class="absolute inset-0 bg-gradient-to-t from-primary-500/3 to-transparent pointer-events-none opacity-60"></div>
