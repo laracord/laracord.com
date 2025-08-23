@@ -125,7 +125,7 @@
     x-transition:leave-end="-translate-x-full"
     class="fixed top-16 left-0 bottom-0 z-50 w-80 bg-white dark:bg-[#0a0a0a] border-r border-gray-300 dark:border-[#333333]/50 lg:hidden"
   >
-    <div class="h-full overflow-y-auto p-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20">
+    <div class="h-full overflow-y-auto p-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-white/10 hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-white/20">
       <nav>
         <ul class="space-y-6 pb-8">
           @foreach ($menu as $group => $items)
@@ -207,7 +207,7 @@
     <div class="max-w-7xl mx-auto px-4 py-8 md:py-16">
       <div class="grid grid-cols-1 gap-y-8 lg:gap-x-8 lg:grid-cols-4">
         <div class="hidden lg:block lg:col-span-1">
-          <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20">
+          <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-white/10 hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-white/20">
             <nav>
               <ul class="space-y-6 pb-8">
                 @foreach ($menu as $group => $items)
