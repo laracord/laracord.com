@@ -1,10 +1,24 @@
-<div class="min-h-screen bg-[#0a0a0a]" x-data="{ sidebarOpen: false, searchOpen: false }">
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#333333]/50">
+<div class="min-h-screen bg-white dark:bg-[#0a0a0a]"
+  x-data="{
+    sidebarOpen: false,
+    searchOpen: false,
+    darkMode: true
+  }"
+  x-init="
+    darkMode = localStorage.getItem('darkMode') !== 'false';
+    document.documentElement.classList.toggle('dark', darkMode);
+
+    $watch('darkMode', value => {
+      localStorage.setItem('darkMode', value);
+      document.documentElement.classList.toggle('dark', value);
+    });
+  ">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#333333]/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex-shrink-0">
           <a href="{{ route('home') }}" wire:navigate>
-            <x-logo size="xl" />
+            <x-logo size="xl" class="text-black/70 dark:text-white" />
           </a>
         </div>
 
@@ -15,22 +29,32 @@
         <div class="flex items-center gap-4">
           <button
             @click="sidebarOpen = !sidebarOpen"
-            class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-[#1a1a1a] transition-colors"
+            class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-[#1a1a1a] transition-colors"
           >
-            <x-lucide-menu class="w-5 h-5 text-white/80" />
+            <x-lucide-menu class="w-5 h-5 text-gray-600 dark:text-white/80" />
           </button>
 
           <button
             @click="searchOpen = !searchOpen"
-            class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-[#1a1a1a] transition-colors"
+            class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-[#1a1a1a] transition-colors"
           >
-            <x-lucide-search class="w-5 h-5 text-white/80" />
+            <x-lucide-search class="w-5 h-5 text-gray-600 dark:text-white/80" />
           </button>
+
+          <button
+            @click="darkMode = !darkMode"
+            class="hidden lg:inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-[#1a1a1a] transition-colors"
+            title="Toggle theme"
+          >
+            <x-lucide-moon x-show="darkMode" class="w-5 h-5 text-gray-600 dark:text-white/80" />
+            <x-lucide-sun x-show="!darkMode" class="w-5 h-5 text-gray-600 dark:text-white/80" />
+          </button>
+
           <div class="relative" x-data="{ open: false }">
             <button
               @click="open = !open"
               @click.away="open = false"
-              class="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-[#1a1a1a] rounded-lg transition-all duration-200"
+              class="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 dark:text-white/80 hover:text-gray-800 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-[#1a1a1a] rounded-lg transition-all duration-200"
             >
               <span>Version {{ $version }}</span>
               <span :class="{ 'rotate-180': open }" class="transition-transform duration-200">
@@ -46,7 +70,7 @@
               x-transition:leave="transition ease-in duration-150"
               x-transition:leave-start="opacity-100 translate-y-0"
               x-transition:leave-end="opacity-0 translate-y-1"
-              class="absolute top-full right-0 mt-2 w-32 bg-[#1a1a1a] border border-[#333333]/50 rounded-xl shadow-2xl overflow-hidden"
+              class="absolute top-full right-0 mt-2 w-32 bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333333]/50 rounded-xl shadow-2xl overflow-hidden"
             >
               <div class="py-2">
                 <a
@@ -55,7 +79,7 @@
                   @class([
                     'block px-4 py-2.5 text-sm transition-colors',
                     'text-primary-500 bg-primary-500/10' => $version === '2.x',
-                    'text-white/70 hover:text-white hover:bg-[#2a2a2a]' => $version !== '2.x',
+                    'text-gray-600 dark:text-white/70 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#2a2a2a]' => $version !== '2.x',
                   ])
                 >
                   Version 2.x
@@ -68,9 +92,9 @@
             href="https://github.com/laracord/laracord"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-[#1a1a1a] transition-colors"
+            class="inline-flex items-center justify-center w-9 h-9 rounded-lg hover:bg-gray-200 dark:hover:bg-[#1a1a1a] transition-colors"
           >
-            <x-lucide-github class="w-5 h-5 text-white/80" />
+            <x-lucide-github class="w-5 h-5 text-gray-600 dark:text-white/80" />
           </a>
         </div>
       </div>
@@ -99,14 +123,14 @@
     x-transition:leave="transition ease-in duration-300 transform"
     x-transition:leave-start="translate-x-0"
     x-transition:leave-end="-translate-x-full"
-    class="fixed top-16 left-0 bottom-0 z-50 w-80 bg-[#0a0a0a] border-r border-[#333333]/50 lg:hidden"
+    class="fixed top-16 left-0 bottom-0 z-50 w-80 bg-white dark:bg-[#0a0a0a] border-r border-gray-300 dark:border-[#333333]/50 lg:hidden"
   >
     <div class="h-full overflow-y-auto p-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20">
       <nav>
         <ul class="space-y-6 pb-8">
           @foreach ($menu as $group => $items)
             <li>
-              <h3 class="text-xs font-bold uppercase tracking-wider text-white/40 mb-3">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-white/40 mb-3">
                 {{ $group }}
               </h3>
 
@@ -118,7 +142,7 @@
                         @class([
                           'block px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200',
                           'bg-primary-500/10 text-primary-500' => request()->url() === route('docs.show', ['version' => $version, 'page' => $item['slug']]),
-                          'text-white/70 hover:text-white hover:bg-[#1a1a1a]' => request()->url() !== route('docs.show', ['version' => $version, 'page' => $item['slug']]),
+                          'text-gray-600 dark:text-white/70 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1a1a1a]' => request()->url() !== route('docs.show', ['version' => $version, 'page' => $item['slug']]),
                         ])
                         wire:navigate
                         href="{{ route('docs.show', ['version' => $version, 'page' => $item['slug']]) }}"
@@ -159,7 +183,7 @@
     x-transition:leave="transition ease-in duration-150"
     x-transition:leave-start="opacity-100 scale-100"
     x-transition:leave-end="opacity-0 scale-95"
-    class="fixed top-16 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-[#333333]/50 md:hidden"
+    class="fixed top-16 left-0 right-0 z-50 bg-white dark:bg-[#0a0a0a] border-b border-gray-200 dark:border-[#333333]/50 md:hidden"
   >
     <div class="p-4">
       <x-docs-search :version="$version" />
@@ -175,7 +199,7 @@
             <ul class="space-y-6 pb-8">
               @foreach ($menu as $group => $items)
                 <li>
-                  <h3 class="text-xs font-bold uppercase tracking-wider text-white/40 mb-3">
+                  <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-white/40 mb-3">
                     {{ $group }}
                   </h3>
 
@@ -187,7 +211,7 @@
                             @class([
                               'block px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200',
                               'bg-primary-500/10 text-primary-500' => request()->url() === route('docs.show', ['version' => $version, 'page' => $item['slug']]),
-                              'text-white/70 hover:text-white hover:bg-[#1a1a1a]' => request()->url() !== route('docs.show', ['version' => $version, 'page' => $item['slug']]),
+                              'text-gray-600 dark:text-white/70 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1a1a1a]' => request()->url() !== route('docs.show', ['version' => $version, 'page' => $item['slug']]),
                             ])
                             wire:navigate
                             href="{{ route('docs.show', ['version' => $version, 'page' => $item['slug']]) }}"
@@ -212,24 +236,27 @@
           </h1>
 
           <div class="prose prose-lg max-w-none
-            prose-headings:text-white prose-headings:font-bold
+            prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold
             prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
             prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-            prose-p:text-white/80 prose-p:leading-relaxed
+            prose-p:text-gray-700 dark:prose-p:text-white/80 prose-p:leading-relaxed
             prose-a:text-primary-500 prose-a:no-underline prose-a:font-medium prose-a:transition-colors prose-a:hover:text-primary-400
-            prose-strong:text-white prose-strong:font-semibold
-            prose-code:text-primary-400 prose-code:bg-[#1a1a1a] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-normal prose-code:before:content-[''] prose-code:after:content-['']
-            prose-pre:bg-[#1a1a1a] prose-pre:border prose-pre:border-[#333333]/50 prose-pre:shadow-xl
-            prose-ul:text-white/80 prose-li:text-white/80
-            prose-blockquote:text-white/70 prose-blockquote:border-l-primary-500 prose-blockquote:bg-[#1a1a1a]/50 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
-            prose-img:rounded-xl prose-img:shadow-2xl prose-img:border prose-img:border-[#333333]/50"
+            prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
+            prose-code:text-white prose-code:bg-[#121212] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-normal prose-code:before:content-[''] prose-code:after:content-['']
+            prose-pre:bg-[#121212] prose-pre:text-white prose-pre:border-0 prose-pre:shadow-xl
+            prose-ul:text-gray-700 dark:prose-ul:text-white/80 prose-li:text-gray-700 dark:prose-li:text-white/80
+            prose-blockquote:text-gray-700 dark:prose-blockquote:text-white/70 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-[#1a1a1a] prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:rounded-lg
+            [&_blockquote]:!text-gray-700 dark:[&_blockquote]:!text-white/70 [&_blockquote]:!bg-blue-50 dark:[&_blockquote]:!bg-[#1a1a1a] [&_blockquote]:!border-l-blue-500
+            [&_blockquote_h4]:!text-blue-600 dark:[&_blockquote_h4]:!text-blue-400 [&_blockquote_strong]:!text-blue-600 dark:[&_blockquote_strong]:!text-blue-400
+            [&_blockquote_a]:!text-blue-600 dark:[&_blockquote_a]:!text-blue-400"
+            prose-img:rounded-xl prose-img:shadow-2xl prose-img:border prose-img:border-gray-200 dark:prose-img:border-[#333333]/50"
           >
             @markdom($page->content)
           </div>
 
-          <div class="mt-16 pt-8 border-t border-[#333333]/25">
+          <div class="mt-16 pt-8 border-t border-gray-200 dark:border-[#333333]/25">
             <a
-              class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-primary-500 transition-colors group"
+              class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-white/50 hover:text-primary-500 transition-colors group"
               href="https://github.com/laracord/laracord.com/blob/main/content/docs/{{ $version }}/{{ $page->slug }}.md"
               target="_blank"
               rel="noopener noreferrer"

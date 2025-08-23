@@ -7,7 +7,7 @@ pre {
   @apply p-0! bg-transparent! font-mono!;
 
   .hljs {
-    @apply bg-black/25 p-4!;
+    @apply bg-[#121212] p-4!;
   }
 }
 
@@ -24,7 +24,7 @@ p > code.hljs {
 }
 
 .hljs {
-  @apply bg-black/25!;
+  @apply bg-[#121212]!;
 
   .hljs-string,
   .hljs-title,

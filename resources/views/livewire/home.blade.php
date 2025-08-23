@@ -2,7 +2,7 @@
 @use('Phiki\Grammar\Grammar')
 @use('Phiki\Theme\Theme')
 
-<div class="min-h-screen bg-[#0a0a0a]" x-data="{
+<div class="min-h-screen bg-[#0a0a0a] dark" x-data="{
   mobileMenuOpen: false,
   activeSection: 'home',
   init() {
