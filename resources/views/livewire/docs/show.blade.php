@@ -158,6 +158,19 @@
           @endforeach
         </ul>
       </nav>
+
+      <div class="mt-3 pt-3 border-t border-gray-200 dark:border-[#333333]/50">
+        <button
+          @click="darkMode = !darkMode"
+          class="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 dark:text-white/70 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1a1a1a] rounded-lg transition-colors"
+          title="Toggle theme"
+        >
+          <x-lucide-moon x-show="darkMode" class="w-4 h-4" />
+          <x-lucide-sun x-show="!darkMode" class="w-4 h-4" />
+          <span x-show="darkMode">Dark mode</span>
+          <span x-show="!darkMode">Light mode</span>
+        </button>
+      </div>
     </div>
   </aside>
 
@@ -192,83 +205,152 @@
 
   <div class="pt-16">
     <div class="max-w-7xl mx-auto px-4 py-8 md:py-16">
-    <div class="grid grid-cols-1 gap-y-8 lg:gap-x-16 lg:grid-cols-4">
-      <div class="hidden lg:block lg:col-span-1">
-        <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20">
-          <nav>
-            <ul class="space-y-6 pb-8">
-              @foreach ($menu as $group => $items)
-                <li>
-                  <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-white/40 mb-3">
-                    {{ $group }}
-                  </h3>
+      <div class="grid grid-cols-1 gap-y-8 lg:gap-x-8 lg:grid-cols-4">
+        <div class="hidden lg:block lg:col-span-1">
+          <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20">
+            <nav>
+              <ul class="space-y-6 pb-8">
+                @foreach ($menu as $group => $items)
+                  <li>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-white/40 mb-3">
+                      {{ $group }}
+                    </h3>
 
-                  @if ($items)
-                    <ul class="space-y-1">
-                      @foreach ($items as $item)
-                        <li>
-                          <a
-                            @class([
-                              'block px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200',
-                              'bg-primary-500/10 text-primary-500' => request()->url() === route('docs.show', ['version' => $version, 'page' => $item['slug']]),
-                              'text-gray-600 dark:text-white/70 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1a1a1a]' => request()->url() !== route('docs.show', ['version' => $version, 'page' => $item['slug']]),
-                            ])
-                            wire:navigate
-                            href="{{ route('docs.show', ['version' => $version, 'page' => $item['slug']]) }}"
-                          >
-                            {{ $item['title'] }}
-                          </a>
-                        </li>
-                      @endforeach
-                    </ul>
-                  @endif
-                </li>
-              @endforeach
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-      <div class="lg:col-span-3">
-        <div class="max-w-3xl">
-          <h1 class="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
-            {{ $page->title }}
-          </h1>
-
-          <div class="prose prose-lg max-w-none
-            prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold
-            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
-            prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-            prose-p:text-gray-700 dark:prose-p:text-white/80 prose-p:leading-relaxed
-            prose-a:text-primary-500 prose-a:no-underline prose-a:font-medium prose-a:transition-colors prose-a:hover:text-primary-400
-            prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
-            prose-code:text-white prose-code:bg-[#121212] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-normal prose-code:before:content-[''] prose-code:after:content-['']
-            prose-pre:bg-[#121212] prose-pre:text-white prose-pre:border-0 prose-pre:shadow-xl
-            prose-ul:text-gray-700 dark:prose-ul:text-white/80 prose-li:text-gray-700 dark:prose-li:text-white/80
-            prose-blockquote:text-gray-700 dark:prose-blockquote:text-white/70 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-[#1a1a1a] prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:rounded-lg
-            [&_blockquote]:!text-gray-700 dark:[&_blockquote]:!text-white/70 [&_blockquote]:!bg-blue-50 dark:[&_blockquote]:!bg-[#1a1a1a] [&_blockquote]:!border-l-blue-500
-            [&_blockquote_h4]:!text-blue-600 dark:[&_blockquote_h4]:!text-blue-400 [&_blockquote_strong]:!text-blue-600 dark:[&_blockquote_strong]:!text-blue-400
-            [&_blockquote_a]:!text-blue-600 dark:[&_blockquote_a]:!text-blue-400"
-            prose-img:rounded-xl prose-img:shadow-2xl prose-img:border prose-img:border-gray-200 dark:prose-img:border-[#333333]/50"
-          >
-            @markdom($page->content)
+                    @if ($items)
+                      <ul class="space-y-1">
+                        @foreach ($items as $item)
+                          <li>
+                            <a
+                              @class([
+                                'block px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200',
+                                'bg-primary-500/10 text-primary-500' => request()->url() === route('docs.show', ['version' => $version, 'page' => $item['slug']]),
+                                'text-gray-600 dark:text-white/70 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1a1a1a]' => request()->url() !== route('docs.show', ['version' => $version, 'page' => $item['slug']]),
+                              ])
+                              wire:navigate
+                              href="{{ route('docs.show', ['version' => $version, 'page' => $item['slug']]) }}"
+                            >
+                              {{ $item['title'] }}
+                            </a>
+                          </li>
+                        @endforeach
+                      </ul>
+                    @endif
+                  </li>
+                @endforeach
+              </ul>
+            </nav>
           </div>
+        </div>
 
-          <div class="mt-16 pt-8 border-t border-gray-200 dark:border-[#333333]/25">
-            <a
-              class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-white/50 hover:text-primary-500 transition-colors group"
-              href="https://github.com/laracord/laracord.com/blob/main/content/docs/{{ $version }}/{{ $page->slug }}.md"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div class="lg:col-span-2">
+          <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary-500 mb-2">
+              {{ $page->title }}
+            </h1>
+
+            <div
+              class="lg:hidden mb-8 mt-6"
+              x-data="tableOfContents()"
+              x-init="generateToc()"
             >
-              <x-lucide-github class="w-4 h-4" />
-              <span>Help us improve this page</span>
-              <x-lucide-arrow-up-right class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+              <div x-show="headings.length > 0" class="bg-gray-50 dark:bg-[#1a1a1a] rounded-lg p-4 border border-gray-200 dark:border-[#333333]/50">
+                <h3 class="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white mb-3">
+                  <x-lucide-list class="w-4 h-4 opacity-60" />
+                  On this page
+                </h3>
+
+                <nav>
+                  <ul class="space-y-1 text-sm">
+                    <template x-for="heading in headings" :key="heading.id">
+                      <li>
+                        <a
+                          :href="'#' + heading.id"
+                          @click.prevent="scrollToHeading(heading.id)"
+                          :class="{
+                            'text-primary-500 dark:text-primary-400': activeHeading === heading.id,
+                            'text-gray-600 dark:text-white/70': activeHeading !== heading.id,
+                            'pl-4': heading.level > 2
+                          }"
+                          class="flex items-center gap-2 py-1 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                        >
+                          <span class="text-orange-500 font-mono text-xs">#</span>
+                          <span x-text="heading.text"></span>
+                        </a>
+                      </li>
+                    </template>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <div id="content" class="prose prose-lg max-w-none
+              prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-bold
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+              prose-p:text-gray-700 dark:prose-p:text-white/80 prose-p:leading-relaxed
+              prose-a:text-primary-500 prose-a:no-underline prose-a:font-medium prose-a:transition-colors prose-a:hover:text-primary-400
+              prose-strong:text-gray-900 dark:prose-strong:text-white prose-strong:font-semibold
+              prose-code:text-white prose-code:bg-[#121212] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-normal prose-code:before:content-[''] prose-code:after:content-['']
+              prose-pre:bg-[#121212] prose-pre:text-white prose-pre:border-0 prose-pre:shadow-xl
+              prose-ul:text-gray-700 dark:prose-ul:text-white/80 prose-li:text-gray-700 dark:prose-li:text-white/80
+              prose-blockquote:text-gray-700 dark:prose-blockquote:text-white/70 prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-[#1a1a1a] prose-blockquote:py-3 prose-blockquote:px-6 prose-blockquote:rounded-lg
+              [&_blockquote]:!text-gray-700 dark:[&_blockquote]:!text-white/70 [&_blockquote]:!bg-blue-50 dark:[&_blockquote]:!bg-[#1a1a1a] [&_blockquote]:!border-l-blue-500
+              [&_blockquote_h4]:!text-blue-600 dark:[&_blockquote_h4]:!text-blue-400 [&_blockquote_strong]:!text-blue-600 dark:[&_blockquote_strong]:!text-blue-400
+              [&_blockquote_a]:!text-blue-600 dark:[&_blockquote_a]:!text-blue-400
+              prose-img:rounded-xl prose-img:shadow-2xl prose-img:border prose-img:border-gray-200 dark:prose-img:border-[#333333]/50"
+            >
+              @markdom($page->content)
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-gray-200 dark:border-[#333333]/25">
+              <a
+                class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-white/50 hover:text-primary-500 transition-colors group"
+                href="https://github.com/laracord/laracord.com/blob/main/content/docs/{{ $version }}/{{ $page->slug }}.md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <x-lucide-github class="w-4 h-4" />
+                <span>Help us improve this page</span>
+                <x-lucide-arrow-up-right class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden lg:block lg:col-span-1"
+          x-data="tableOfContents()"
+          x-init="generateToc()"
+        >
+          <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pl-6">
+            <div x-show="headings.length > 0" class="space-y-4">
+              <h3 class="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white">
+                <x-lucide-list class="w-4 h-4 opacity-60" />
+                On this page
+              </h3>
+
+              <nav>
+                <ul class="space-y-1 text-sm">
+                  <template x-for="heading in headings" :key="heading.id">
+                    <li>
+                      <a
+                        :href="'#' + heading.id"
+                        @click.prevent="scrollToHeading(heading.id)"
+                        :class="{
+                          'text-primary-500 dark:text-primary-400': activeHeading === heading.id,
+                          'text-gray-600 dark:text-white/70': activeHeading !== heading.id,
+                          'pl-4': heading.level > 2
+                        }"
+                        class="block py-1 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                        x-text="heading.text"
+                      ></a>
+                    </li>
+                  </template>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 
@@ -276,29 +358,74 @@
 
   @pushOnce('scripts')
     @markdomStyles
+
     <script>
-      document.addEventListener('alpine:init', () => {
-        Alpine.store('docs', {
-          sidebarOpen: false,
-          searchOpen: false,
+      function tableOfContents() {
+        return {
+          headings: [],
+          activeHeading: null,
+          observer: null,
 
-          toggleSidebar() {
-            this.sidebarOpen = !this.sidebarOpen;
+          generateToc() {
+            const content = document.getElementById('content');
+
+            if (!content) return;
+
+            const headingElements = content.querySelectorAll('h2, h3');
+
+            this.headings = Array.from(headingElements).map((heading, index) => {
+              const level = parseInt(heading.tagName.charAt(1));
+              const text = heading.textContent.trim().replace(/^#+\s*/, '');
+              const id = heading.id || `heading-${index}`;
+
+              if (!heading.id) {
+                heading.id = id;
+              }
+
+              return { id, text, level, element: heading };
+            });
+
+            this.$nextTick(() => {
+              this.setupIntersectionObserver();
+            });
           },
 
-          closeSidebar() {
-            this.sidebarOpen = false;
+          scrollToHeading(id) {
+            const element = document.getElementById(id);
+
+            if (element) {
+              element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+              });
+            }
           },
 
-          toggleSearch() {
-            this.searchOpen = !this.searchOpen;
-          },
+          setupIntersectionObserver() {
+            if (this.observer) {
+              this.observer.disconnect();
+            }
 
-          closeSearch() {
-            this.searchOpen = false;
+            this.observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  this.activeHeading = entry.target.id;
+                }
+              });
+            }, {
+              rootMargin: '-10% 0% -85% 0%',
+              threshold: 0.1
+            });
+
+            this.headings.forEach(heading => {
+              if (heading.element) {
+                this.observer.observe(heading.element);
+              }
+            });
           }
-        });
-      });
+        }
+      }
     </script>
   @endPushOnce
 </div>
