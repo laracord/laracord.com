@@ -22,7 +22,7 @@
             wire:navigate
             aria-label="Laracord"
           >
-            <x-logo size="xl" class="text-black/70 dark:text-white" />
+            <x-logo size="xl" class="text-black/70 dark:text-white/80" />
           </a>
         </div>
 
