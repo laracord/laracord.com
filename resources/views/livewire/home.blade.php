@@ -4,6 +4,7 @@
 
 <div class="min-h-screen bg-[#0a0a0a]" x-data="{
   mobileMenuOpen: false,
+  activeSection: 'home',
   init() {
     this.$watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '');
   }
@@ -22,14 +23,18 @@
         <div class="hidden lg:block">
           <div class="ml-10 flex items-baseline space-x-8">
             @foreach ([
-              ['href' => '#features', 'label' => 'Features'],
-              ['href' => '#examples', 'label' => 'Examples'],
-              ['href' => '#getting-started', 'label' => 'Get Started'],
-              ['href' => '#faq', 'label' => 'FAQ']
+              ['href' => '#features', 'label' => 'Features', 'id' => 'features'],
+              ['href' => '#examples', 'label' => 'Examples', 'id' => 'examples'],
+              ['href' => '#getting-started', 'label' => 'Get Started', 'id' => 'getting-started'],
+              ['href' => '#faq', 'label' => 'FAQ', 'id' => 'faq']
             ] as $item)
               <a
                 href="{{ $item['href'] }}"
-                class="text-white/80 hover:text-primary-500 transition-colors px-3 py-2 text-sm font-medium"
+                :class="{
+                  'text-primary-500': activeSection === '{{ $item['id'] }}',
+                  'text-white/80 hover:text-primary-500': activeSection !== '{{ $item['id'] }}'
+                }"
+                class="transition-colors px-3 py-2 text-sm font-medium"
               >
                 {{ $item['label'] }}
               </a>
@@ -106,6 +111,7 @@
 
       <nav class="space-y-1 mb-8">
         @foreach ([
+          ['href' => '#home', 'label' => 'Home', 'icon' => 'home'],
           ['href' => '#features', 'label' => 'Features', 'icon' => 'sparkles'],
           ['href' => '#examples', 'label' => 'Examples', 'icon' => 'code-2'],
           ['href' => '#getting-started', 'label' => 'Get Started', 'icon' => 'rocket'],
@@ -116,7 +122,10 @@
             @click="mobileMenuOpen = false"
             class="flex items-center gap-3 px-4 py-3 rounded-lg text-white/80 hover:text-white hover:bg-[#1a1a1a] transition-all duration-200 group"
           >
-            <x-dynamic-component :component="'lucide-' . $item['icon']" class="w-5 h-5 text-white/60 group-hover:text-primary-500 transition-colors" />
+            <x-dynamic-component
+              :component="'lucide-' . $item['icon']"
+              class="w-5 h-5 text-white/60 group-hover:text-primary-500 transition-colors"
+            />
             <span class="font-medium">{{ $item['label'] }}</span>
           </a>
         @endforeach
@@ -171,7 +180,11 @@
   </div>
 
   <div class="pt-8">
-    <section class="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
+    <section
+      id="home"
+      x-intersect:enter="activeSection = $el.id"
+      class="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden"
+    >
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(229,57,43,0.15)_0%,rgba(229,57,43,0.08)_40%,transparent_70%)]"
            style="animation: breathe 3s ease-in-out infinite;"></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(229,57,43,0.1)_0%,transparent_50%)]"
@@ -386,7 +399,11 @@
       </div>
     </section>
 
-    <section id="features" class="py-24 px-4 relative">
+    <section
+      id="features"
+      x-intersect:enter="activeSection = $el.id"
+      class="py-24 px-4 relative"
+    >
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary-500/10 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-radial from-primary-500/5 via-transparent to-transparent"></div>
 
@@ -428,7 +445,11 @@
       </div>
     </section>
 
-    <section id="examples" class="py-20 px-4 relative">
+    <section
+      id="examples"
+      x-intersect:enter="activeSection = $el.id"
+      class="py-20 px-4 relative"
+    >
       <div class="absolute inset-0 bg-gradient-to-b from-[#2a2a2a]/20 to-transparent pointer-events-none"></div>
       <div class="max-w-7xl mx-auto relative">
         <div class="text-center mb-16">
@@ -666,7 +687,11 @@
       </div>
     </section>
 
-    <section id="getting-started" class="py-24 px-4 relative">
+    <section
+      id="getting-started"
+      x-intersect:enter="activeSection = $el.id"
+      class="py-24 px-4 relative"
+    >
       <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/30 to-[#0a0a0a]"></div>
 
       <div class="max-w-6xl mx-auto relative z-10">
@@ -758,7 +783,11 @@
       </div>
     </section>
 
-    <section id="faq" class="py-24 px-4 relative">
+    <section
+      id="faq"
+      x-intersect:enter="activeSection = $el.id"
+      class="py-24 px-4 relative"
+    >
       <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a]/20 to-[#0a0a0a]"></div>
       <div class="max-w-4xl mx-auto relative z-10">
         <div class="text-center mb-16">
