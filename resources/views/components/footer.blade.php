@@ -13,7 +13,7 @@
             <li>
               <a
                 href="{{ $link['href'] }}"
-                class="text-gray-500 dark:text-white/50 hover:text-primary-500 transition-colors"
+                class="text-gray-500 dark:text-white/50 dark:hover:text-primary-500 hover:text-primary-500 transition-colors"
               >
                 {{ $link['label'] }}
               </a>
@@ -35,7 +35,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 href="{{ $link['href'] }}"
-                class="text-gray-500 dark:text-white/50 hover:text-primary-500 transition-colors"
+                class="text-gray-500 dark:text-white/50 dark:hover:text-primary-500 hover:text-primary-500 transition-colors"
               >
                 {{ $link['label'] }}
               </a>
