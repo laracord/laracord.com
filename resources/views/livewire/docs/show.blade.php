@@ -304,7 +304,7 @@
 
             <div class="mt-16 pt-8 border-t border-gray-200 dark:border-[#333333]/25">
               <a
-                class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-white/50 hover:text-primary-500 transition-colors group"
+                class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-white/50 dark:hover:text-primary-500 hover:text-primary-500 transition-colors group"
                 href="https://github.com/laracord/laracord.com/blob/main/content/docs/{{ $version }}/{{ $page->slug }}.md"
                 target="_blank"
                 rel="noopener noreferrer"
