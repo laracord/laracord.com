@@ -10,6 +10,8 @@ Laracord is based on [Laravel Zero](https://github.com/laravel-zero/laravel-zero
 
 The primary difference is the `Commands` directory consists of Discord commands instead of console commands. Instead, console commands are located in `Console/Commands` and the directory structure brings focus to the bot instead of CLI.
 
+## Directory Tree
+
 ```sh
 .
 ├── app
