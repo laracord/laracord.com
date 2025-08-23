@@ -11,7 +11,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->web(App\Http\Middleware\AddSeoDefaults::class);
+        $middleware->web(append: [
+            \App\Http\Middleware\AddSeoDefaults::class,
+            \Spatie\ResponseCache\Middlewares\CacheResponse::class,
+        ]);
     })->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
