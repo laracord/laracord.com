@@ -321,7 +321,7 @@
           x-data="tableOfContents()"
           x-init="generateToc()"
         >
-          <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pl-6">
+          <div class="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pl-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-300 dark:scrollbar-thumb-white/10 hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-white/20">
             <div x-show="headings.length > 0" class="space-y-4">
               <h3 class="flex items-center gap-2 text-sm font-medium text-gray-900 dark:text-white">
                 <x-lucide-list class="w-4 h-4 opacity-60" />
