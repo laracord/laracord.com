@@ -16,7 +16,7 @@
     "laravel/sanctum": "^4.0",
     "laravel/tinker": "^2.8",
     "livewire/livewire": "^3.3",
-    "log1x/laravel-webfonts": "^1.0",
+    "log1x/laravel-webfonts": "^2.0",
     "mallardduck/blade-lucide-icons": "^1.23",
     "phiki/phiki": "^1.1",
     "romanzipp/laravel-seo": "^2.6",
