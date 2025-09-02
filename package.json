@@ -13,7 +13,7 @@
     "laravel-vite-plugin": "^1.0.5",
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.12",
-    "vite": "^5.3.4"
+    "vite": "^7.1.4"
   },
   "dependencies": {
     "@alpinejs/intersect": "^3.14.9",
